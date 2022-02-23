@@ -3,7 +3,7 @@ const { Movie, User } = require('../db');
 
 require('dotenv').config();
 
-const allApiData = async () => {
+/* const allApiData = async () => {
 
     const aUrl = await axios.get('https://yts.mx/api/v2/list_movies.json?sort=seeds&limit=50');
     const aInfo = await aUrl.data.data.movies.map(e => {
@@ -21,10 +21,10 @@ const allApiData = async () => {
 
     return aInfo
 
-};
+}; */
 
 
-/* const allDbData = async () => {
+const allDbData = async () => {
 
     return await Recipe.findAll({
 
@@ -38,7 +38,7 @@ const allApiData = async () => {
 
     })
 
-}; */
+};
 
 /* const allData = async () => {
 
@@ -53,8 +53,8 @@ const allApiData = async () => {
 
 module.exports = {
 
-     /* allData,
-    allDbData, */
-    allApiData
+   /*   allData, */
+    allDbData/* ,
+    allApiData */
 
 };

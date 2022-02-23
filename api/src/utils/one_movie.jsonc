@@ -1,0 +1,63 @@
+{
+    // *** movie_id ***
+    "id": 40234,
+    "url": "https:\/\/yts.mx\/movies\/the-child-of-another-1975",
+    "imdb_code": "tt0073417",
+    // *** original title ***
+    "title": "The Child of Another",
+    "title_english": "The Child of Another",
+    // *** title_long ***
+    "title_long": "The Child of Another (1975)",
+    "slug": "the-child-of-another-1975",
+    // *** year ***
+    "year": 1975,
+    // *** rating ***
+    "rating": 7.1,
+    // *** runtime *** 
+    "runtime": 100,
+    // *** genres ***
+    "genres": [
+        "Drama"
+    ],
+    "summary": "Ngando and Ndom\u00e9; are in love. Ngando wishes to marry Ndom\u00e9; but her family reminds him that the traditional dowry must be settled. Unfortunately, Ngando is poor and unable to fulfill the tradition. Ndom\u00e9; is pregnant and bears his child. According to the village tradition, she must take a husband, at least one who can afford to pay the dowry. The villagers decide that Ndom\u00e9; should marry Ngando's uncle, who has already three sterile wives. In despair, the young man kidnaps his daughter upon the day of the traditional feast. An African Romeo and Juliet story. \u2014marfilmes",
+    "description_full": "Ngando and Ndom\u00e9; are in love. Ngando wishes to marry Ndom\u00e9; but her family reminds him that the traditional dowry must be settled. Unfortunately, Ngando is poor and unable to fulfill the tradition. Ndom\u00e9; is pregnant and bears his child. According to the village tradition, she must take a husband, at least one who can afford to pay the dowry. The villagers decide that Ndom\u00e9; should marry Ngando's uncle, who has already three sterile wives. In despair, the young man kidnaps his daughter upon the day of the traditional feast. An African Romeo and Juliet story. \u2014marfilmes",
+    "synopsis": "Ngando and Ndom\u00e9; are in love. Ngando wishes to marry Ndom\u00e9; but her family reminds him that the traditional dowry must be settled. Unfortunately, Ngando is poor and unable to fulfill the tradition. Ndom\u00e9; is pregnant and bears his child. According to the village tradition, she must take a husband, at least one who can afford to pay the dowry. The villagers decide that Ndom\u00e9; should marry Ngando's uncle, who has already three sterile wives. In despair, the young man kidnaps his daughter upon the day of the traditional feast. An African Romeo and Juliet story. \u2014marfilmes",
+    // *** trailer *** //
+    "yt_trailer_code": "",
+    "language": "fr",
+    "mpa_rating": "",
+    "background_image": "https:\/\/yts.mx\/assets\/images\/movies\/the_child_of_another_1975\/background.jpg",
+    "background_image_original": "https:\/\/yts.mx\/assets\/images\/movies\/the_child_of_another_1975\/background.jpg",
+    "small_cover_image": "https:\/\/yts.mx\/assets\/images\/movies\/the_child_of_another_1975\/small-cover.jpg",
+    "medium_cover_image": "https:\/\/yts.mx\/assets\/images\/movies\/the_child_of_another_1975\/medium-cover.jpg",
+    "large_cover_image": "https:\/\/yts.mx\/assets\/images\/movies\/the_child_of_another_1975\/large-cover.jpg",
+    "state": "ok",
+    "torrents": [
+        {
+            "url": "https:\/\/yts.mx\/torrent\/download\/E206DD8E510B2C49970FC27A5D57239CE8DF5283",
+            "hash": "E206DD8E510B2C49970FC27A5D57239CE8DF5283",
+            "quality": "720p",
+            "type": "web",
+            "seeds": 0,
+            "peers": 0,
+            "size": "826.49 MB",
+            "size_bytes": 866637578,
+            "date_uploaded": "2022-02-23 08:57:37",
+            "date_uploaded_unix": 1645603057
+        },
+        {
+            "url": "https:\/\/yts.mx\/torrent\/download\/649D84DC4320199AA1A65AEE44FF3C91D7ACA6B0",
+            "hash": "649D84DC4320199AA1A65AEE44FF3C91D7ACA6B0",
+            "quality": "1080p",
+            "type": "web",
+            "seeds": 0,
+            "peers": 0,
+            "size": "1.5 GB",
+            "size_bytes": 1610612736,
+            "date_uploaded": "2022-02-23 11:05:16",
+            "date_uploaded_unix": 1645610716
+        }
+    ],
+    "date_uploaded": "2022-02-23 08:57:37",
+    "date_uploaded_unix": 1645603057
+}
