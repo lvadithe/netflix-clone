@@ -1,25 +1,11 @@
-/* const data = require('../apiInfo/allDbData') */
-const { Movie, User } = require('../db');
-
-const allDbData = async () => {
-
-    return await Movie.findAll({
-        attributes: ['id', 'imdb_code', 'title', 'title_long', 'year', 'rating', 'runtime', 'genres', 'synopsis', 'description_full', 'yt_trailer_code', 'language', 'background_image', 'background_image_original', 'small_cover_image', 'medium_cover_image', 'large_cover_image'],
-    })
-        .then(movies => {
-            console.log(movies.toJSON())
-        })
-        .catch(err => {
-            console.log(err)
-        })
-};
+const data = require('../apiInfo/allDbData')
 
 const get = async (req, res) => {
 
     try {
 
         const { name } = req.query;
-        const recipesAll = await allDbData();
+        const recipesAll = await data.allDbData();
 
         if (name) {
 
@@ -45,7 +31,7 @@ const movieId = async (req, res) => {
     try {
 
         const { id } = req.params;
-        const moviesID = await data.allData()
+        const moviesID = await data.allDbData()
 
         if (id) {
             const moviesId = await moviesID.filter(e => e.id == id)
