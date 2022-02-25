@@ -1,8 +1,7 @@
 .banner__container {
-    position: relative;
-    height: 448px;
-    color: white;
+    color:white;
     object-fit: contain;
+    height: 448px;
 }
 
 .benner_content{

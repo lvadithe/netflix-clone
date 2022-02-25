@@ -5,11 +5,11 @@ const get = async (req, res) => {
     try {
 
         const { name } = req.query;
-        const recipesAll = await data.allDbData();
+        const moviesAll = await data.allDbData();
 
         if (name) {
 
-            let recipesName = await recipesAll.filter(
+            let recipesName = await moviesAll.filter(
                 e => e.name.toLowerCase().includes(name.toLowerCase()));
 
             recipesName.length ?
@@ -17,7 +17,7 @@ const get = async (req, res) => {
                 res.status(400).send('There is no recipe you are looking for.');
 
         } else {
-            res.status(200).send(recipesAll)
+            res.status(200).send(moviesAll)
         }
 
     } catch {

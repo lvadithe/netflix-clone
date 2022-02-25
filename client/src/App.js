@@ -1,12 +1,26 @@
 import './App.css';
 import Home from './components/principal/home/Home';
+import {
+  BrowserRouter,
+  Routes,
+  Route
+} from "react-router-dom";
+import Nav from './components/secondary/nav/Nav';
+import Detail from './components/principal/detail/Detail';
 
 function App() {
 
   return (
-    <div className="App">
-      <Home />
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <Nav />
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/detail/:id' element={<Detail />} />
+        </Routes>
+      </div>
+    </BrowserRouter>
+
   );
 }
 
