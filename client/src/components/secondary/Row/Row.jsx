@@ -1,39 +1,53 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
-import { getMovies, filterMoviesByGeners } from "../../../redux/actions"
+import { Link } from 'react-router-dom'
+// import { useDispatch, useSelector } from 'react-redux';
+// import { /* getMovies,  */filterByGenres } from "../../../redux/actions"
+import axios from 'axios';
 import "./row.css"
+
+
 // props is an array of strings. Each string is a genre.
 function Row(props) {
 
-  const dispatch = useDispatch()
-  const movies = useSelector(state => state.allmovies)
-  const [moviesToShow, setMoviesToShow] = useState([])
+  const [movies, setMovies] = useState([])
+
+  // We need to get the movies from the external API.
+  const genre = props.genre[0]
+  const BASE_URL = 'http://localhost:3001'
+
 
   useEffect(() => {
-    dispatch(getMovies())
+    async function fetchData() {
+      const apiMovies = await axios.get(`${BASE_URL}/search?genre=${genre}&year=2021-2022`)
+      return apiMovies.data
+
+    }
+    fetchData().then(movies => {
+      setMovies(movies)
+    })
+
+    // eslint-disable-next-line
   }, [])
 
-  // we need to dipatch filterByGenres with our genres array, which we received by props:
-  useEffect(() => {
-    dispatch(filterMoviesByGeners(props.genre))
-  }, [props.genre])
-
-  // when the reducer filtered the movies array, we use it to populate our local state:
-  useEffect(() => {
-    setMoviesToShow(movies)
-  }, [movies])
-
-  return (
+  console.log(movies)
+  return movies.length > 0 ? (
     <div className="row">
       <h2>{props.genre}</h2>
       <div className="row__poster">
         {
-          moviesToShow.map
+
+          movies.map
+
             (movie => {
               return (
-                <div className=""key={movie.id}>
-                  <Link to={`/detail/${movie.id}`}>
+                <div className="" key={
+
+                  movie.id
+
+                }>
+                  <Link to={`/detail/${movie.id
+
+                    }`}>
                     <img
                       className="card-img-top"
                       src={movie.large_cover_image}
@@ -41,12 +55,11 @@ function Row(props) {
                     />
                   </Link>
                 </div>
-
               )
             })}
       </div>
     </div>
-  )
+  ) : <div>Loading...</div>
 }
 
-export default Row;
+export default Row; 
