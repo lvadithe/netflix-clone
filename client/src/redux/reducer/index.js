@@ -1,35 +1,7 @@
 const initialState = {
     movies: [],
     allmovies: [],
-    genres: [],
-    filteredMoviesByGenre: {
-        Action: [],
-        Adventure: [],
-        Animation: [],
-        Biography: [],
-        Comedy: [],
-        Crime: [],
-        Documentary: [],
-        Drama: [],
-        Family: [],
-        Fantasy: [],
-        Film_Noir: [],
-        Game_Show: [],
-        History: [],
-        Horror: [],
-        Music: [],
-        Musical: [],
-        Mystery: [],
-        News: [],
-        Reality_TV: [],
-        Romance: [],
-        Sci_Fi: [],
-        Sport: [],
-        Talk_Show: [],
-        Thriller: [],
-        War: [],
-        Western: []
-    }
+    genres: []
 }
 
 function rootReducer(state = initialState, action) {
