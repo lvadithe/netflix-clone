@@ -16,7 +16,8 @@ function Detail() {
   }, [dispatch, id])
 
   return (
-    <div>Detail</div>
+    <>
+    </>
   )
 }
 

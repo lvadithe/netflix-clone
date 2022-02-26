@@ -11,11 +11,12 @@ const router = Router();
 const moviesRouter = require('./movies');
 const userRouter = require('./users');
 const genresRouter = require('./genres');
+const searchRouter = require('./search');
 
 router.use('/user', userRouter);
 router.use('/movies', moviesRouter);
 router.use('/genres', genresRouter);
-
+router.use('/search', searchRouter);
 
 
 module.exports = router;
