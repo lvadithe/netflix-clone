@@ -23,7 +23,6 @@ function Row(props) {
     // eslint-disable-next-line
   }, [])
 
-  console.log(movies)
   return movies.length > 0 ? (
     <div className="row">
       <h2>{props.genre}</h2>
@@ -33,8 +32,7 @@ function Row(props) {
             (movie => {
               return (
                 <div className="" key={movie.id}>
-                  <Link to={`/detail/${movie.id
-                    }`}>
+                  <Link to={`/detail/${movie.id}`}>
                     <img
                       className="card-img-top"
                       src={movie.large_cover_image}

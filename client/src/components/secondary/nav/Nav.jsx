@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import LOGO from '../../../assets/logo_netflix.png';
 import AVATAR from '../../../assets/avatar.png';
+import { Link } from 'react-router-dom';
 import "./nav.css";
 
 function Nav() {
+    
     const [state, setState] = useState(false);
 
     const transitionNavBar = () => {
@@ -22,7 +24,9 @@ function Nav() {
     return (
         <div className={`nav__container ${state && 'nav__black'}`}>
             <div className="nav__content">
-                <img src={LOGO} alt="" className='nav__logo' />
+                <Link to="/home">
+                    <img src={LOGO} alt="" className='nav__logo' />
+                </Link>
                 <img src={AVATAR} alt="" className='avatar__logo' />
             </div>
         </div>
