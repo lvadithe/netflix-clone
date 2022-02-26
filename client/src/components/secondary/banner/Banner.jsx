@@ -28,9 +28,11 @@ function Banner() {
     
     return (
         <header className="banner__container" style={{
-            backgroundSize: "cover",
+            backgroundRepeat: "no-repeat",
+            objectPosition: "center center",
             backgroundImage: `url(${randomMovie ? randomMovie.large_cover_image : ""})`,
-            backgroundPosition: "center center" 
+            backgroundSize: "cover",
+            
         }}>
             <div className="benner_content">
                 <h1 className="banner__title">

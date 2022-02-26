@@ -1,10 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom'
-// import { useDispatch, useSelector } from 'react-redux';
-// import { /* getMovies,  */filterByGenres } from "../../../redux/actions"
 import axios from 'axios';
 import "./row.css"
-
 
 // props is an array of strings. Each string is a genre.
 function Row(props) {
@@ -15,17 +12,14 @@ function Row(props) {
   const genre = props.genre[0]
   const BASE_URL = 'http://localhost:3001'
 
-
   useEffect(() => {
     async function fetchData() {
       const apiMovies = await axios.get(`${BASE_URL}/search?genre=${genre}&year=2021-2022`)
       return apiMovies.data
-
     }
     fetchData().then(movies => {
       setMovies(movies)
     })
-
     // eslint-disable-next-line
   }, [])
 
@@ -35,18 +29,11 @@ function Row(props) {
       <h2>{props.genre}</h2>
       <div className="row__poster">
         {
-
           movies.map
-
             (movie => {
               return (
-                <div className="" key={
-
-                  movie.id
-
-                }>
+                <div className="" key={movie.id}>
                   <Link to={`/detail/${movie.id
-
                     }`}>
                     <img
                       className="card-img-top"

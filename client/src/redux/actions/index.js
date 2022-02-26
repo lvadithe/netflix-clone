@@ -14,23 +14,12 @@ export function getMovies() {
 
 };
 
-export function getGenres() {
-
+export function getMoviesDetail(id) {
   return async function (dispatch) {
-    let json = await axios.get("http://localhost:3001/genres");
+    const json = await axios.get(`http://localhost:3001/movies/${id}`);
     return dispatch({
-      type: 'GET_GENRES',
-      payload: json.data,
+      type: 'GET_DETAIL',
+      payload: json.data
     })
   }
-
-};
-
-export function filterMoviesByGeners(genres) {
-
-  return  {
-    type: 'FILTER_BY_GENRES',
-    payload: genres
-  }
-
-};
+}
