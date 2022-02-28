@@ -1,7 +1,8 @@
 const initialState = {
     movies: [],
     allmovies: [],
-    detail: []
+    detail: [],
+    searchR: []
 }
 
 function rootReducer(state = initialState, action) {
@@ -16,6 +17,11 @@ function rootReducer(state = initialState, action) {
             return {
                 ...state,
                 detail: action.payload
+            }
+        case 'GET_NAME_MOVIES':
+            return {
+                ...state,
+                searchR: action.payload
             }
         default:
             return state

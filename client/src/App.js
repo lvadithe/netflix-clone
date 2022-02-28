@@ -7,6 +7,7 @@ import {
 } from "react-router-dom";
 import Nav from './components/secondary/nav/Nav';
 import Detail from './components/principal/detail/Detail';
+import SearchD from './components/principal/search/SearchD';
 
 function App() {
 
@@ -17,6 +18,7 @@ function App() {
         <Routes>
           <Route path='/home' element={<Home />} />
           <Route path='/detail/:id' element={<Detail />} />
+          <Route path='/search' element={<SearchD />} />
         </Routes>
       </div>
     </BrowserRouter>
