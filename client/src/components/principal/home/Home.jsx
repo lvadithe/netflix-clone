@@ -1,7 +1,7 @@
 import React from 'react'
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { getMovies } from "../../../redux/actions"
+import { getMovies, getClean } from "../../../redux/actions"
 import Banner from '../../secondary/banner/Banner'
 import Nav from '../../secondary/nav/Nav'
 import Row from '../../secondary/Row/Row'
@@ -13,9 +13,8 @@ function Home() {
   const searchM = useSelector(state => state.searchR)
   const dispatch = useDispatch()
   useEffect(() => {
-    dispatch(getMovies())
-
-  })
+    dispatch(getClean())
+  }, [])
 
   return (
     <div className="home_container">

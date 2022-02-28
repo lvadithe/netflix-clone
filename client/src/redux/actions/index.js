@@ -32,3 +32,11 @@ export function getNameMovies(name) { //por busqueda -> query
   }
 
 };
+
+export function getClean() {
+
+  return {
+    type: 'GET_CLEAN'
+  }
+
+}

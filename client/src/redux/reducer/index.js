@@ -23,6 +23,11 @@ function rootReducer(state = initialState, action) {
                 ...state,
                 searchR: action.payload
             }
+        case 'GET_CLEAN':
+            return {
+                ...state,
+                searchR: []
+            }
         default:
             return state
     }

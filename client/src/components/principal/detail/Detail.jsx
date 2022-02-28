@@ -18,7 +18,7 @@ function Detail() {
   }, [dispatch, id])
 
   const movieDetail = useSelector(state => state.detail)
-  console.log(movieDetail)
+
   return (
     <div className="container_detail">
       {
