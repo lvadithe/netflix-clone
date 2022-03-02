@@ -4,8 +4,9 @@ import AVATAR from '../../../assets/avatar.png';
 import { Link } from 'react-router-dom';
 import { BsSearch } from 'react-icons/bs';
 import { useDispatch } from "react-redux";
-import { getNameMovies, getClean } from "../../../redux/actions";
+import { getNameMovies } from "../../../redux/actions";
 import "./nav.css";
+import Searchs from '../../principal/searchs/Searchs';
 
 
 function Nav() {
@@ -22,11 +23,11 @@ function Nav() {
         e.preventDefault()
         dispatch(getNameMovies(name)) //el estado
         setName('')
+        prueba()
     }
+    const prueba = () => {
 
-    function handleSubmits(e) {
-        e.preventDefault()
-        dispatch(getClean()) //el estado
+        <Link to="/searchs" />
     }
 
     const transitionNavBar = () => {
@@ -46,7 +47,7 @@ function Nav() {
         <div className={`nav__container ${state && 'nav__black'}`}>
             <div className="nav__content">
                 <Link to="/home">
-                    <img /* onClick={(e) => handleSubmits(e)} */ src={LOGO} alt="" className='nav__logo' />
+                    <img src={LOGO} alt="" className='nav__logo' />
                 </Link>
                 <div className="container-2">
                     <BsSearch onClick={(e) => handleSubmit(e)} className="icon" />

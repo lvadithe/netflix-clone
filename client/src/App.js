@@ -8,6 +8,7 @@ import {
 import Nav from './components/secondary/nav/Nav';
 import Detail from './components/principal/detail/Detail';
 import SearchD from './components/principal/search/SearchD';
+import Searchs from './components/principal/searchs/Searchs';
 
 function App() {
 
@@ -17,6 +18,7 @@ function App() {
         <Nav />
         <Routes>
           <Route path='/home' element={<Home />} />
+          <Route path='/searchs' element={<Searchs />} />
           <Route path='/detail/:id' element={<Detail />} />
           <Route path='/search' element={<SearchD />} />
         </Routes>

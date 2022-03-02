@@ -1,7 +1,7 @@
 import React from 'react'
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { getMovies, getClean } from "../../../redux/actions"
+import { getClean } from "../../../redux/actions"
 import Banner from '../../secondary/banner/Banner'
 import Nav from '../../secondary/nav/Nav'
 import Row from '../../secondary/Row/Row'
@@ -17,13 +17,9 @@ function Home() {
   }, [])
 
   return (
-    <div className="home_container">
-      {
-        searchM.length > 0 ?
-          <Searchs />
-          :
-          <div className="">
-            <Nav />
+
+    <div className="home_container"> 
+      {/*     <Searchs /> */}
             <Banner />
             <div className="">
               <Row genre={["Action"]} />
@@ -32,8 +28,6 @@ function Home() {
               <Row genre={["Horror"]} />
               <Row genre={["Romance"]} />
             </div>
-          </div>
-      }
     </div>
   )
 }

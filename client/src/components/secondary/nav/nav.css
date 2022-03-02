@@ -48,7 +48,7 @@
   background: transparent;
   border: none;
   font-size: 10pt;
-  float: left;
+  /* float: left; */
   color: #262626;
   padding-left: 35px;
   -webkit-border-radius: 5px;

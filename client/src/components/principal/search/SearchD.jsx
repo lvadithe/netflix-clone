@@ -1,19 +1,35 @@
 import React from 'react'
 import { Link } from "react-router-dom";
+import "./searchd.css";
 
-function SearchD({ title, img, id }) {
+function SearchD({ title, img, id, genres }) {
     return (
         <div className="container_m">
             <div className="movie_card">
-                <div className="m_title">
-                    {title}
+
+                <div className="body_m">
+                    <div className="m_title">
+                        {title}
+                    </div>
                 </div>
+
                 <div>
-                    <Link to={'/detail/' + id} className="detail_m" >
-                        <div className="m_img">
-                            <img src={img} alt="" />
-                        </div>
+                    <Link to={'/detail/' + id} >
+                        <img src={img} alt="" className="m_img" />
                     </Link>
+                </div>
+                <div className="body_m">
+                    {/* <div className="genres_m">
+                        {
+                            genres?.map
+                                (
+                                    (d, id) =>
+                                        <ul key={id}>
+                                            <li>{d.genres}</li>
+                                        </ul>
+                                )
+                        }
+                    </div> */}
                 </div>
             </div>
         </div>
