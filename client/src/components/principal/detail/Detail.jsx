@@ -19,13 +19,18 @@ function Detail() {
 
   const movieDetail = useSelector(state => state.detail)
 
+  const handleClick = (e) => {
+    // We need to redirect the user to the youtube page of the trailer video
+    window.open(`https://www.youtube.com/watch?v=${movieDetail[0].yt_trailer_code}`, "_blank")
+  }
+
   return (
     <div className="container_detail">
       {
         movieDetail.length > 0 ?
           <>
             <div className="background_content">
-              <img src={movieDetail[0].large_cover_image} alt="" className="img_detail" />
+              <img src={movieDetail[0].background_image_original} alt="" className="img_detail" />
             </div>
             <div className="subtitle">
               {movieDetail[0].title_long}
@@ -34,23 +39,25 @@ function Detail() {
               {movieDetail[0].synopsis}
             </div>
             <div className="rating">
-              <AiFillStar className='icon'/>
+              <AiFillStar className='icon' />
               <h4>rating </h4>
               {movieDetail[0].rating}
             </div>
             <div className="controls__detail">
-              <button className="triler__button">
-                <img src="/images/play-icon-white.png" alt="" />
-                <span>TRAILER</span>
-              </button>
-              <button className="add__button">
+              {movieDetail[0].yt_trailer_code.length > 0 &&
+                <button className="triler__button" onClick={handleClick}>
+                  <img src="/images/play-icon-white.png" alt="" />
+                  <span>TRAILER</span>
+                </button>
+              }
+              < button className="add__button">
                 <span className='icon__add'>+</span>
               </button>
             </div>
           </>
           : <p >LOADING...</p>
       }
-    </div>
+    </div >
   )
 }
 
