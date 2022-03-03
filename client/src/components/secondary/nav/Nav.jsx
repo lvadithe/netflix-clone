@@ -6,10 +6,11 @@ import { BsSearch } from 'react-icons/bs';
 import { useDispatch } from "react-redux";
 import { getNameMovies } from "../../../redux/actions";
 import "./nav.css";
-import Searchs from '../../principal/searchs/Searchs';
+import { useNavigate } from 'react-router-dom';
 
 
 function Nav() {
+    const navigate = useNavigate()
     const dispatch = useDispatch()
     const [name, setName] = useState('')
     const [state, setState] = useState(false);
@@ -19,15 +20,13 @@ function Nav() {
         setName(e.target.value)   //valor del input
     }
 
+    // We need to go to the 'Searchs' route after we dealt with the search
     function handleSubmit(e) {
         e.preventDefault()
-        dispatch(getNameMovies(name)) //el estado
+        dispatch(getNameMovies(name))
+        // Redirectionate to the 'Searchs' route
         setName('')
-        prueba()
-    }
-    const prueba = () => {
-
-        <Link to="/searchs" />
+        navigate('/searchs')
     }
 
     const transitionNavBar = () => {
@@ -59,4 +58,4 @@ function Nav() {
     )
 }
 
-export default Nav
+export default Nav 

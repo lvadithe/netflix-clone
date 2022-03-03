@@ -1,27 +1,40 @@
 import './App.css';
 import Home from './components/principal/home/Home';
+import Nav from './components/secondary/nav/Nav';
+import Detail from './components/principal/detail/Detail';
+import SearchD from './components/principal/search/SearchD';
+import Searchs from './components/principal/searchs/Searchs';
 import {
   BrowserRouter,
   Routes,
   Route
 } from "react-router-dom";
-import Nav from './components/secondary/nav/Nav';
-import Detail from './components/principal/detail/Detail';
-import SearchD from './components/principal/search/SearchD';
-import Searchs from './components/principal/searchs/Searchs';
+import Login from './components/principal/login/Login';
+
 
 function App() {
+  const user = null;
 
   return (
     <BrowserRouter>
       <div className="App">
-        <Nav />
-        <Routes>
-          <Route path='/home' element={<Home />} />
-          <Route path='/searchs' element={<Searchs />} />
-          <Route path='/detail/:id' element={<Detail />} />
-          <Route path='/search' element={<SearchD />} />
-        </Routes>
+        {
+          !user ?
+            (
+              <Routes>
+                <Route path='/login' element={<Login />} />
+              </Routes>
+            ) :
+            (
+              <Routes>
+                <Nav />
+                <Route path='/home' element={<Home />} />
+                <Route path='/searchs' element={<Searchs />} />
+                <Route path='/detail/:id' element={<Detail />} />
+                <Route path='/search' element={<SearchD />} />
+              </Routes>
+            )
+        }
       </div>
     </BrowserRouter>
 

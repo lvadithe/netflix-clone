@@ -1,17 +1,12 @@
 import React, {  useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 import PaginateF from '../../functional/paginateF/PaginateF'
 import SearchD from '../search/SearchD'
+import "./searchs.css";
 
 function Searchs() {
 
-    const dispatch = useDispatch()
     const searchM = useSelector(state => state.searchR)
-
-    /* useEffect(() => {
-        dispatch(getNameMovies())
-    }, []) */
-
     const [currentPage, setCurrentPage] = useState(1)
     const [moviesPerPage] = useState(6)
     const lastMovie = currentPage * moviesPerPage

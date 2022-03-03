@@ -18,19 +18,6 @@ function SearchD({ title, img, id, genres }) {
                         <img src={img} alt="" className="m_img" />
                     </Link>
                 </div>
-                <div className="body_m">
-                    {/* <div className="genres_m">
-                        {
-                            genres?.map
-                                (
-                                    (d, id) =>
-                                        <ul key={id}>
-                                            <li>{d.genres}</li>
-                                        </ul>
-                                )
-                        }
-                    </div> */}
-                </div>
             </div>
         </div>
     )
