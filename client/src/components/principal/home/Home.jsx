@@ -9,6 +9,7 @@ function Home() {
     <div className="home_container">
       <Banner />
       <div className="">
+        <Row genre={[""]} description={"Weekly ranking"}/>
         <Row genre={["Action"]} />
         <Row genre={["Comedy"]} />
         <Row genre={["Drama"]} />
