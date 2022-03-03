@@ -13,28 +13,28 @@ import Login from './components/principal/login/Login';
 
 
 function App() {
-  const user = null;
+  // const user = null;
 
   return (
     <BrowserRouter>
       <div className="App">
-        {
+        {/* {
           !user ? 
             (
               <Routes>
                 <Route path='/login' element={<Login />} />
               </Routes>
             ) :
-            (
-              <Routes>
+            ( */}
                 <Nav />
+              <Routes>
                 <Route path='/home' element={<Home />} />
                 <Route path='/searchs' element={<Searchs />} />
                 <Route path='/detail/:id' element={<Detail />} />
                 <Route path='/search' element={<SearchD />} />
               </Routes>
-            )
-        }
+            {/* )
+        } */}
       </div>
     </BrowserRouter>
 
