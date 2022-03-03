@@ -6,7 +6,7 @@ export function getMovies() {
     let json = await axios.get("https://vadith-moviesapp-backend.herokuapp.com/search");
     return dispatch({
       type: 'GET_MOVIES',
-      payload: json.data
+      payload: json.data.data
 
     })
 
@@ -28,7 +28,7 @@ export function getNameMovies(name) { //por busqueda -> query
 
   return async function (dispatch) {
     let json = await axios.get(`https://vadith-moviesapp-backend.herokuapp.com/search?title=${name}`);
-    return dispatch({ type: 'GET_NAME_MOVIES', payload: json.data })
+    return dispatch({ type: 'GET_NAME_MOVIES', payload: json.data.data })
   }
 
 };

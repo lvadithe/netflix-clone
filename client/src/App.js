@@ -19,7 +19,7 @@ function App() {
     <BrowserRouter>
       <div className="App">
         {
-          !user ?
+          !user ? 
             (
               <Routes>
                 <Route path='/login' element={<Login />} />

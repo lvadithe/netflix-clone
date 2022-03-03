@@ -10,12 +10,12 @@ function Row(props) {
 
   // We need to get the movies from the external API.
   const genre = props.genre[0]
-  const BASE_URL = 'http://localhost:3001'
+  const BASE_URL = 'https://vadith-moviesapp-backend.herokuapp.com'
 
   useEffect(() => {
     async function fetchData() {
       const apiMovies = await axios.get(`${BASE_URL}/search?genre=${genre}&year=2021-2022`)
-      return apiMovies.data
+      return apiMovies.data.data
     }
     fetchData().then(movies => {
       setMovies(movies)
