@@ -14,7 +14,7 @@ function Row(props) {
 
   useEffect(() => {
     async function fetchData() {
-      const apiMovies = await axios.get(`${BASE_URL}/search?genre=${genre}&year=2021-2022`)
+      const apiMovies = await axios.get(`${BASE_URL}/search?genre=${genre}&year=2021-2022&order_by=rating`)
       return apiMovies.data.data
     }
     fetchData().then(movies => {
@@ -23,9 +23,11 @@ function Row(props) {
     // eslint-disable-next-line
   }, [])
 
+  const description = props.description || props.genre
+
   return movies.length > 0 ? (
     <div className="row">
-      <h2>{props.genre}</h2>
+      <h2>{description}</h2>
       <div className="row__poster">
         {
           movies.map
@@ -35,7 +37,7 @@ function Row(props) {
                   <Link to={`/detail/${movie.id}`}>
                     <img
                       className="card-img-top"
-                      src={movie.large_cover_image}
+                      src={movie.small_cover_image}
                       alt={movie.title}
                     />
                   </Link>
