@@ -33,6 +33,15 @@ export function getNameMovies(name) { //por busqueda -> query
 
 };
 
+export function postUser(payload) {
+
+  return async function () {
+    const data = await axios.post("http://localhost:3001/user", payload);
+    return data
+  }
+
+}
+
 export function getClean() {
 
   return {
