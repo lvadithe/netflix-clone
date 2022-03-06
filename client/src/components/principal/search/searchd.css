@@ -18,25 +18,15 @@
 
 .m_title {
     color: rgb(255, 255, 255);
-    text-align: center;
     font-family: 'Cormorant Garamond', serif;
     font-size: 30px;
     font-weight: 700;
     margin-top: 20px;
     margin-bottom: 20px;
-    /* line-height: 40px; */
 }
 
-/* .genres_m {
-    display: inline-block;
-    font-weight: 500;
-    font-size: x-large;
-    line-height: 20px;
-    margin: 10px 0;
-    text-transform: uppercase;
-}
- */
 .m_img {
     width: 250px;
     height: 250px;
+    border: 5px solid #fff;
 }

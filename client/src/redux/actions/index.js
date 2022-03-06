@@ -33,6 +33,14 @@ export function getNameMovies(name) { //por busqueda -> query
 
 };
 
+export function filterByRating (payload) {
+
+  return {
+    type: "FILTER_BY_RATING",
+    payload
+  }
+}
+
 export function postUser(payload) {
 
   return async function () {
