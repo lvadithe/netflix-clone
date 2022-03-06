@@ -37,7 +37,7 @@ export function postUser(payload) {
 
   return async function () {
     const data = await axios.post("http://localhost:3001/user", payload);
-    return data
+    return ({ type: 'POST_USER', data })
   }
 
 }
