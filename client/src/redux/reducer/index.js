@@ -2,7 +2,9 @@ const initialState = {
     movies: [],
     allmovies: [],
     detail: [],
-    searchR: []
+    searchR: [],
+    user: [],
+    name: []
 }
 
 function rootReducer(state = initialState, action) {
@@ -21,7 +23,23 @@ function rootReducer(state = initialState, action) {
         case 'GET_NAME_MOVIES':
             return {
                 ...state,
+                name: action.name,
                 searchR: action.payload
+            }
+        case 'FILTER_BY_RATING':
+            return {
+                ...state,
+                searchR: action.payload
+            }
+        case 'FILTER_BY_YEAR':
+            return {
+                ...state,
+                searchR: action.payload
+            }
+        case 'POST_USER':
+            return {
+                ...state,
+                user: []
             }
         case 'GET_CLEAN':
             return {

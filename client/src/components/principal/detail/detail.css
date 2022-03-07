@@ -1,11 +1,66 @@
 .container_detail {
-    min-height     : calc(100vh - 70px);
-    padding        : 0 calc(3.5vw - 5px);
-    position       : relative;
-    display        : flex;
-    align-items    : flex-start;
+    min-height: calc(100vh - 70px);
+    padding: 55px;
+    position: relative;
+    display: flex;
+    align-items: flex-start;
     justify-content: center;
-    flex-direction : column;
+    flex-direction: column;
+}
+.row_d{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+
+.movie_p_d {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.img_detail{
+    border: 5px solid #fff;
+    max-width: 180px;
+}
+
+.info_d {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 35px;
+}
+
+.subtitle {
+    color     : rgb(249, 249, 249);
+    font-size : 35px;
+    min-width : 30px;
+    margin-top: 16px;
+}
+
+.year_d {
+    color: rgb(249, 249, 249);
+    font-size: 20px;
+    min-width: 43px;
+    margin-top: 25px;
+}
+
+.genre_d {
+    color: rgb(249, 249, 249);
+    font-size: 20px;
+    min-width: 43px;
+    margin-top: 25px;
+}
+
+.rating {
+    line-height: 1.4;
+    font-size: 15px;
+    margin-top: 36px;
+    color: rgb(255, 253, 253);
+    max-width: 755px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 }
 
 .background_content {
@@ -20,8 +75,6 @@
     z-index        : -1;
 }
 
-.img_detail {}
-
 .controls__detail {
     display       : flex;
     align-items   : center;
@@ -32,8 +85,8 @@
 .triler__button {
     border-radius : 4px;
     font-size     : 15px;
-    padding       : 0px 24px;
-    margin-right  : 22px;
+    padding       : 0px 56px;
+    margin-top    : 16px;
     display       : flex;
     align-items   : center;
     height        : 50px;
@@ -71,13 +124,6 @@
     color    : white;
 }
 
-.subtitle {
-    color     : rgb(249, 249, 249);
-    font-size : 35px;
-    min-width : 30px;
-    margin-top: 16px;
-}
-
 .description {
     line-height  : 1.4;
     font-size    : 20px;
@@ -87,16 +133,7 @@
     max-width    : 760px;
 }
 
-.rating {
-    line-height   : 1.4;
-    font-size     : 20px;
-    margin-top    : 16px;
-    color         : rgb(255, 253, 253);
-    max-width     : 760px;
-    display       : flex;
-    align-items   : center;
-    flex-direction: column;
-}
+
 
 .icon {
     color: goldenrod;

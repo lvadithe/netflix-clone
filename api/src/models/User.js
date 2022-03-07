@@ -12,10 +12,10 @@ module.exports = (sequelize) => {
             primaryKey: true
         },
 
-        name: {
+        /* name: {
             type: DataTypes.STRING,
             allowNull: false,
-        },
+        }, */
 
         email: {
             type: DataTypes.STRING,

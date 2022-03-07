@@ -4,14 +4,14 @@ const post = async (req, res) => {
     
     try {
 
-        const { name, email, password } = req.body;
+        const { /* name, */ email, password } = req.body;
         const newUser = await User.create({
-            name,
+           /*  name, */
             email,
             password
         });
 
-        res.status(201).send(newUser)
+        res.status(201).send('New User')
 
     } catch {
         return res.status(400).send('Invalid input.')
