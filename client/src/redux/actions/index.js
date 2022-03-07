@@ -28,16 +28,31 @@ export function getNameMovies(name) { //por busqueda -> query
 
   return async function (dispatch) {
     let json = await axios.get(`https://vadith-moviesapp-backend.herokuapp.com/search?title=${name}`);
-    return dispatch({ type: 'GET_NAME_MOVIES', payload: json.data.data })
+    return dispatch({ type: 'GET_NAME_MOVIES', payload: json.data.data, name })
   }
 
 };
 
-export function filterByRating (payload) {
+export function filterByRating(order, name) {
 
-  return {
-    type: "FILTER_BY_RATING",
-    payload
+  return async function (dispatch) {
+    let json = await axios.get(`https://vadith-moviesapp-backend.herokuapp.com/search?title=${name}&order_by=rating&sort=${order}`);
+    return dispatch({
+      type: "FILTER_BY_RATING",
+      payload: json.data.data
+    })
+
+  }
+}
+
+export function filterByYear(order, name, year) {
+  return async function (dispatch) {
+    let json = await axios.get(`https://vadith-moviesapp-backend.herokuapp.com/search?title=${name}&year=${year}&order_by=rating&sort=${order}`);
+    return dispatch({
+      type: "FILTER_BY_RATING",
+      payload: json.data.data
+    })
+
   }
 }
 
