@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { filterByRating, filterByYear } from '../../../redux/actions';
+import { filterByGenre, filterByRating, filterByYear } from '../../../redux/actions';
 import PaginateF from '../../functional/paginateF/PaginateF'
 import SearchD from '../search/SearchD'
 import "./searchs.css";
@@ -31,9 +31,14 @@ function Searchs() {
     function handlerOrderByYear(e) {
         e.preventDefault()
         dispatch(filterByYear(order, names, e.target.value))
+        setYear(e.target.value)
     }
 
-    console.log(names)
+    function handlerOrderByGenre(e) {
+        e.preventDefault()
+        dispatch(filterByGenre(order, names, year, e.target.value))
+    }
+
     return (
         <div className="container">
             <div className="orders">
@@ -55,6 +60,33 @@ function Searchs() {
                     <option value="1980-1989" >1980-1989</option>
                     <option value="1970-1979" >1970-1979</option>
                     <option value="1900-1969" >1900-1969</option>
+                </select>
+                <select onChange={(e) => handlerOrderByGenre(e)} defaultValue='default' className='order_r'>
+                    <option value="default" disabled >Genre</option>
+                    <option value="Action" >Action</option>
+                    <option value="Adventure" >Adventure</option>
+                    <option value="Animation" >Animation</option>
+                    <option value="Biography" >Biography</option>
+                    <option value="Comedy" >Comedy</option>
+                    <option value="Crime" >Crime</option>
+                    <option value="Documentary" >Documentary</option>
+                    <option value="Drama" >Drama</option>
+                    <option value="Family" >Family</option>
+                    <option value="Fantasy" >Fantasy</option>
+                    <option value="Film Noir" >Film Noir</option>
+                    <option value="History" >History</option>
+                    <option value="Horror" >Horror</option>
+                    <option value="Music" >Music</option>
+                    <option value="Musical" >Musical</option>
+                    <option value="Mystery" >Mystery</option>
+                    <option value="Romance" >Romance</option>
+                    <option value="Sci-Fi" >Sci-Fi</option>
+                    <option value="Short Film" >Short Film</option>
+                    <option value="Sport" >Sport</option>
+                    <option value="Superhero" >Superhero</option>
+                    <option value="Thriller" >Thriller</option>
+                    <option value="War" >War</option>
+                    <option value="Western" >Western</option>
                 </select>
             </div>
 

@@ -36,6 +36,11 @@ function rootReducer(state = initialState, action) {
                 ...state,
                 searchR: action.payload
             }
+        case 'FILTER_BY_GENRE':
+            return {
+                ...state,
+                searchR: action.payload
+            }
         case 'POST_USER':
             return {
                 ...state,

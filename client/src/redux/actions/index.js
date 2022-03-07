@@ -56,6 +56,18 @@ export function filterByYear(order, name, year) {
   }
 }
 
+export function filterByGenre(order, name, year, genre) {
+
+  return async function (dispatch) {
+    let json = await axios.get(`https://vadith-moviesapp-backend.herokuapp.com/search?title=${name}&genre=${genre}&year=${year}&order_by=rating&sort=${order}`);
+    return dispatch({
+      type: "FILTER_BY_GENRE",
+      payload: json.data.data
+    })
+
+  }
+}
+
 export function postUser(payload) {
 
   return async function () {

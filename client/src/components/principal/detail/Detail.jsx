@@ -22,13 +22,8 @@ function Detail() {
 
   const genr = () => {
     const gen = movieDetail.map(e => e.genres)
-    const ge = gen.join(",").split("  ")
-
-    for (let i = 0; i < ge.length; i++) {
-
-      let genress = ge[i++]
-      return genress
-    }
+    const ge = gen.join(",")
+    return ge
   }
 
   const handleClick = (e) => {
