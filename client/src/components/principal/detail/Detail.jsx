@@ -6,6 +6,7 @@ import { useEffect } from "react";
 import { AiFillStar } from 'react-icons/ai'
 
 import { getMoviesDetail } from '../../../redux/actions';
+import LOGO from '../../../assets/logo_netflix.png';
 import "./detail.css";
 
 
@@ -43,7 +44,6 @@ function Detail() {
             <div className='background_content' style={{
               backgroundImage: `url(${movieDetail[0].background_image_original})`
             }}>
-              {/* <img className="background_content" src={movieDetail[0].background_image_original} alt=""  className="img_detail"  /> */}
             </div>
             <div className='row_d'>
               <div className="movie_p_d">
@@ -85,7 +85,7 @@ function Detail() {
             </div>
 
           </>
-          : <p >LOADING...</p>
+          : <img className='loading_d' src={LOGO} alt="" />
       }
     </div >
   )
