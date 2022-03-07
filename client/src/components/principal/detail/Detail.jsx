@@ -9,8 +9,8 @@ import { getMoviesDetail } from '../../../redux/actions';
 import LOGO from '../../../assets/logo_netflix.png';
 import "./detail.css";
 
-
 function Detail() {
+  
   const { id } = useParams();
   const dispatch = useDispatch()
 

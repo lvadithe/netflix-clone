@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { filterByGenre, filterByRating, filterByYear } from '../../../redux/actions';
+import { filterByGenre, filterByRating, filterByYear, getNameMovies } from '../../../redux/actions';
 import PaginateF from '../../functional/paginateF/PaginateF'
 import SearchD from '../search/SearchD'
 import "./searchs.css";
@@ -8,15 +8,23 @@ import "./searchs.css";
 function Searchs() {
 
     const dispatch = useDispatch();
+
     const [order, setOrder] = useState("")
     const [year, setYear] = useState("")
+    const [genre, setGenre] = useState("")
+
     const searchM = useSelector(state => state.searchR)
     const names = useSelector(state => state.name)
+    
     const [currentPage, setCurrentPage] = useState(1)
     const [moviesPerPage] = useState(6)
     const lastMovie = currentPage * moviesPerPage
     const firstMovie = lastMovie - moviesPerPage
     const currentMovies = searchM.slice(firstMovie, lastMovie)
+
+    useEffect(() => {
+        dispatch(getNameMovies(""))
+    }, [])
 
     const paginado = (pageNumber) => {
         setCurrentPage(pageNumber)
@@ -24,19 +32,20 @@ function Searchs() {
 
     function handlerOrderByRanting(e) {
         e.preventDefault()
-        dispatch(filterByRating(e.target.value, names))
+        dispatch(filterByRating(e.target.value, names, year, genre))
         order ? setOrder("asc") : setOrder("desc")
     }
 
     function handlerOrderByYear(e) {
         e.preventDefault()
-        dispatch(filterByYear(order, names, e.target.value))
+        dispatch(filterByYear(order, names, e.target.value, genre))
         setYear(e.target.value)
     }
 
     function handlerOrderByGenre(e) {
         e.preventDefault()
         dispatch(filterByGenre(order, names, year, e.target.value))
+        setGenre(e.target.value)
     }
 
     return (
@@ -89,7 +98,6 @@ function Searchs() {
                     <option value="Western" >Western</option>
                 </select>
             </div>
-
             <div className="content">
                 {
                     searchM.length > 0 ?

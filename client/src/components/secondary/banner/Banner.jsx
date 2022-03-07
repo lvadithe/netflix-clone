@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import "./banner.css";
+import { useSelector } from 'react-redux';
 
 function Banner() {
 
@@ -20,9 +21,13 @@ function Banner() {
         // eslint-disable-next-line
     }, [])
 
-
     function truncate(string, n) {
         return string?.length > n ? string.substr(0, n - 1) + '...' : string;
+    }
+
+    const handleClick = (e) => {
+        // We need to redirect the user to the youtube page of the trailer video
+        window.open(`https://www.youtube.com/watch?v=${randomMovie.yt_trailer_code}`, "_blank")
     }
 
     return (
@@ -34,7 +39,7 @@ function Banner() {
                     {randomMovie ? randomMovie.title : ""}
                 </h1>
                 <div className="banner_buttons">
-                    <button className='banner__button'>Play</button>
+                    <button className='banner__button' onClick={handleClick}>Trailer</button>
                     <button className='banner__button'>My List</button>
                 </div>
                 <h1 className="banner__description">

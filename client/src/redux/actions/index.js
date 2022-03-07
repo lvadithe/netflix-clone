@@ -33,10 +33,10 @@ export function getNameMovies(name) { //por busqueda -> query
 
 };
 
-export function filterByRating(order, name) {
+export function filterByRating(order, name, year, genre) {
 
   return async function (dispatch) {
-    let json = await axios.get(`https://vadith-moviesapp-backend.herokuapp.com/search?title=${name}&order_by=rating&sort=${order}`);
+    let json = await axios.get(`https://vadith-moviesapp-backend.herokuapp.com/search?title=${name}&genre=${genre}&year=${year}&order_by=rating&sort=${order}`);
     return dispatch({
       type: "FILTER_BY_RATING",
       payload: json.data.data
@@ -45,9 +45,9 @@ export function filterByRating(order, name) {
   }
 }
 
-export function filterByYear(order, name, year) {
+export function filterByYear(order, name, year, genre) {
   return async function (dispatch) {
-    let json = await axios.get(`https://vadith-moviesapp-backend.herokuapp.com/search?title=${name}&year=${year}&order_by=rating&sort=${order}`);
+    let json = await axios.get(`https://vadith-moviesapp-backend.herokuapp.com/search?title=${name}&genre=${genre}&year=${year}&order_by=rating&sort=${order}`);
     return dispatch({
       type: "FILTER_BY_RATING",
       payload: json.data.data
