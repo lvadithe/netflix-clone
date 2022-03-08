@@ -4,7 +4,7 @@ import AVATAR from '../../../assets/avatar.png';
 import { Link } from 'react-router-dom';
 import { BsSearch } from 'react-icons/bs';
 import { useDispatch } from "react-redux";
-import { getNameMovies } from "../../../redux/actions";
+import { pickSearchTerm } from "../../../redux/actions";
 import "./nav.css";
 import { useNavigate } from 'react-router-dom';
 
@@ -23,7 +23,7 @@ function Nav() {
     // We need to go to the 'Searchs' route after we dealt with the search
     function handleSubmit(e) {
         e.preventDefault()
-        dispatch(getNameMovies(name))
+        dispatch(pickSearchTerm(name))
         // Redirectionate to the 'Searchs' route
         setName('')
         navigate('/searchs')

@@ -4,7 +4,8 @@ const initialState = {
     detail: [],
     searchR: [],
     user: [],
-    name: []
+    name: [],
+    searchTerm: ''
 }
 
 function rootReducer(state = initialState, action) {
@@ -50,6 +51,11 @@ function rootReducer(state = initialState, action) {
             return {
                 ...state,
                 searchR: []
+            }
+        case 'PICK_SEARCH_TERM':
+            return {
+                ...state,
+                searchTerm: action.payload
             }
         default:
             return state

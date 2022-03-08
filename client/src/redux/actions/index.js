@@ -24,6 +24,15 @@ export function getMoviesDetail(id) {
   }
 }
 
+// Nueva action para recibir solamente el término de búsqueda, y luego utilizarlo en el componente SearchS
+export function pickSearchTerm(term) {
+  return {
+    type: 'PICK_SEARCH_TERM',
+    payload: term
+  }
+}
+
+// Get movies by name (search term from nav component)
 export function getNameMovies(name) { //por busqueda -> query
 
   return async function (dispatch) {

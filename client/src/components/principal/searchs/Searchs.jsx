@@ -1,62 +1,80 @@
+// import { filterByGenre, filterByRating, filterByYear, getNameMovies } from '../../../redux/actions';
+
 import React, { useEffect, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { filterByGenre, filterByRating, filterByYear, getNameMovies } from '../../../redux/actions';
-import PaginateF from '../../functional/paginateF/PaginateF'
-import SearchD from '../search/SearchD'
+import { useSelector } from 'react-redux'
+
+import PaginateF from '../../functional/paginateF/PaginateF'    // Lógica para el paginado
+import SearchD from '../search/SearchD'                         // Card con una sola película
+import axios from 'axios'
+
 import "./searchs.css";
+
+// Queremos deshacerno de las llamadas a redux, y reemplazarlas
+//      por llamadas directas a la api usando hooks y estado local.
+// Necesitamos tener un estado local que regitre las opciones de filtrado del usuario
+//      y que se actualice cuando cambie la selección del formulario.
+
 
 function Searchs() {
 
-    const dispatch = useDispatch();
+    const searchTerm = useSelector(state => state.searchTerm)
 
-    const [order, setOrder] = useState("")
-    const [year, setYear] = useState("")
-    const [genre, setGenre] = useState("")
+    const [options, setOptions] = useState({
+        order: "",
+        year: "",
+        genre: ""
+    })
+    const [movies, setMovies] = useState([])
 
-    const searchM = useSelector(state => state.searchR)
-    const names = useSelector(state => state.name)
-    
+    //  Manejo de la búsqueda
+    const handleInputChange = (e) => {
+        e.preventDefault()
+        setOptions({
+            ...options,
+            [e.target.name]: e.target.value
+        })
+    }
+    // Búsqueda propiamente dicha:
+    const API_URL = "https://vadith-moviesapp-backend.herokuapp.com/search?"
+    // Término de búsqueda desde el componente nav, donde está el input del usuario
+    console.log(searchTerm)
+    // Envío de la búsqueda al backend
+    useEffect(() => {
+        const fetchData = async () => {
+
+            const result = await axios(`${API_URL}title=${searchTerm}&order_by=rating&sort=${options.order}&year=${options.year}&genre=${options.genre}`)
+            setMovies(result.data.data)
+
+        }
+        fetchData()
+        // eslint-disable-next-line
+    }, [searchTerm, options])
+
+    console.log(movies)
+    // ########################################################
+    // RELATIVO AL PAGINADO
     const [currentPage, setCurrentPage] = useState(1)
     const [moviesPerPage] = useState(6)
     const lastMovie = currentPage * moviesPerPage
     const firstMovie = lastMovie - moviesPerPage
-    const currentMovies = searchM.slice(firstMovie, lastMovie)
-
-    useEffect(() => {
-        dispatch(getNameMovies(""))
-    }, [])
+    const currentMovies = movies.slice(firstMovie, lastMovie)
 
     const paginado = (pageNumber) => {
         setCurrentPage(pageNumber)
-    }
+    }   // Importante y no se toca
+    // ########################################################
 
-    function handlerOrderByRanting(e) {
-        e.preventDefault()
-        dispatch(filterByRating(e.target.value, names, year, genre))
-        order ? setOrder("asc") : setOrder("desc")
-    }
-
-    function handlerOrderByYear(e) {
-        e.preventDefault()
-        dispatch(filterByYear(order, names, e.target.value, genre))
-        setYear(e.target.value)
-    }
-
-    function handlerOrderByGenre(e) {
-        e.preventDefault()
-        dispatch(filterByGenre(order, names, year, e.target.value))
-        setGenre(e.target.value)
-    }
 
     return (
         <div className="container">
             <div className="orders">
-                <select onChange={(e) => handlerOrderByRanting(e)} defaultValue='default' className='order_r'>
+                {/* className 'order_r' */}
+                <select onChange={(e) => handleInputChange(e)} name="order" className="order_r" defaultValue="default">
                     <option value="default" disabled >Rating</option>
                     <option value="asc" >asc</option>
                     <option value="desc" >desc</option>
                 </select>
-                <select onChange={(e) => handlerOrderByYear(e)} defaultValue='default' className='order_r'>
+                <select onChange={(e) => handleInputChange(e)} name="year" className="order_r" defaultValue="default">
                     <option value="default" disabled >Years</option>
                     <option value="2022" >2022</option>
                     <option value="2021" >2021</option>
@@ -70,7 +88,7 @@ function Searchs() {
                     <option value="1970-1979" >1970-1979</option>
                     <option value="1900-1969" >1900-1969</option>
                 </select>
-                <select onChange={(e) => handlerOrderByGenre(e)} defaultValue='default' className='order_r'>
+                <select onChange={(e) => handleInputChange(e)} name="genre" className="order_r" defaultValue="default">
                     <option value="default" disabled >Genre</option>
                     <option value="Action" >Action</option>
                     <option value="Adventure" >Adventure</option>
@@ -100,7 +118,7 @@ function Searchs() {
             </div>
             <div className="content">
                 {
-                    searchM.length > 0 ?
+                    movies.length > 0 ?
                         currentMovies.map(el => {
                             return (
                                 <SearchD title={el.title} img={el.large_cover_image} id={el.id} genres={el.genres} />
@@ -111,7 +129,7 @@ function Searchs() {
                 <div className="">
                     <PaginateF
                         moviesPerPage={moviesPerPage}
-                        searchM={searchM.length}
+                        movies={movies.length}
                         paginado={paginado}
                         currentPage={currentMovies}
                     />
