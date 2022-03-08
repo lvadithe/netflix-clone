@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
 import "./paginatef.css";
 
-function PaginateF({ moviesPerPage, searchM, paginado }) {
+function PaginateF({ moviesPerPage, movies, paginado }) {
 
     const pageNumers = []
 
-    for (let i = 1; i <= Math.ceil(searchM / moviesPerPage); i++) {
+    for (let i = 1; i <= Math.ceil(movies / moviesPerPage); i++) {
         pageNumers.push(i)
     }
 
