@@ -8,7 +8,7 @@ import MovieCard from '../MovieCard/MovieCard'
 import SearchFilters from '../../secondary/SearchFilters/SearchFilters'
 import axios from 'axios'
 
-import "./searchs.css";
+import "./Searchs.css";
 
 // Queremos deshacerno de las llamadas a redux, y reemplazarlas
 //      por llamadas directas a la api usando hooks y estado local.
@@ -79,25 +79,26 @@ function Searchs() {
             <div className="content">
                 {
                     movies.length > 0 ?
-                        currentMovies.map(el => {
+                        currentMovies.map((el, index) => {
                             return (
                                 <MovieCard
-                                    title={el.title}
-                                    img={el.large_cover_image}
                                     id={el.id}
+                                    key={index}
+                                    title={el.title}
                                     genres={el.genres}
+                                    img={el.large_cover_image}
                                 />
                             )
                         }) : <h1>Loading....</h1>
                 }
-                <div className="">
-                    <PaginateF
-                        moviesPerPage={moviesPerPage}
-                        movies={movies.length}
-                        paginado={paginado}
-                        currentPage={currentMovies}
-                    />
-                </div>
+            </div>
+            <div className="">
+                <PaginateF
+                    moviesPerPage={moviesPerPage}
+                    movies={movies.length}
+                    paginado={paginado}
+                    currentPage={currentMovies}
+                />
             </div>
         </div>
     )

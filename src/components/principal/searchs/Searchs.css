@@ -1,0 +1,20 @@
+/* Container is the main Component div */
+
+.container {
+    background-color: #111;
+    padding: 72px;
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+}
+
+
+/* Content is where all cards are rendered */
+
+.content {
+    padding: 95px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-gap: 20px;
+    grid-auto-rows: minmax(300px, auto);
+}

@@ -7,10 +7,10 @@ import { AiFillStar } from 'react-icons/ai'
 
 import { getMoviesDetail } from '../../../redux/actions';
 import LOGO from '../../../assets/logo_netflix.png';
-import "./detail.css";
+import "./Detail.css";
 
 function Detail() {
-  
+
   const { id } = useParams();
   const dispatch = useDispatch()
 
@@ -19,11 +19,13 @@ function Detail() {
   }, [dispatch, id])
 
   const movieDetail = useSelector(state => state.detail)
+  console.log(movieDetail)
 
-  const genr = () => {
-    const gen = movieDetail.map(e => e.genres)
-    const ge = gen.join(",")
-    return ge
+  const getGenres = () => {
+    // const gen = movieDetail.map(e => e.genres)
+    // const ge = gen.join(", ")
+    // return ge
+    return movieDetail.map(e => e.genres)[0].join(", ")
   }
 
   const handleClick = (e) => {
@@ -59,7 +61,7 @@ function Detail() {
                   {movieDetail[0].year}
                 </div>
                 <div className="genre_d">
-                  {genr()}
+                  {getGenres()}
                 </div>
                 <div className="rating">
                   <AiFillStar className='icon' />

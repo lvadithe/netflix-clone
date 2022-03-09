@@ -1,7 +1,7 @@
 import './App.css';
 import Home from './components/principal/home/Home';
 import Nav from './components/secondary/Nav/Nav';
-import Detail from './components/principal/detail/Detail';
+import Detail from './components/principal/Detail/Detail';
 import MovieCard from './components/principal/MovieCard/MovieCard';
 import Searchs from './components/principal/searchs/Searchs';
 import {
