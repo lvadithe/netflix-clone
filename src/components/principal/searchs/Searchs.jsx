@@ -47,18 +47,16 @@ function Searchs() {
         // eslint-disable-next-line
     }, [searchTerm, options])
 
-    // ########################################################
-    // RELATIVO AL PAGINADO
-    const [currentPage, setCurrentPage] = useState(1)
+    // ############################################################
+    //                   RELATIVO AL PAGINADO
     const [moviesPerPage] = useState(6)
+    const [currentPage, setCurrentPage] = useState(1)
     const lastMovie = currentPage * moviesPerPage
     const firstMovie = lastMovie - moviesPerPage
     const currentMovies = movies.slice(firstMovie, lastMovie)
 
-    const paginado = (pageNumber) => {
-        setCurrentPage(pageNumber)
-    }   // Importante y no se toca
-    // ########################################################
+    const paginado = (pageNumber) => { setCurrentPage(pageNumber) }
+    // ############################################################
 
 
     return (
@@ -71,6 +69,7 @@ function Searchs() {
                             return (
                                 <MovieCard
                                     id={el.id}
+                                    key={el.id}
                                     title={el.title}
                                     genres={el.genres}
                                     img={el.large_cover_image}
