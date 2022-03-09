@@ -1,33 +1,26 @@
-// import { filterByGenre, filterByRating, filterByYear, getNameMovies } from '../../../redux/actions';
-
-import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
+import React, { useEffect, useState } from 'react'
 
-import PaginateF from '../../functional/paginateF/PaginateF'    // Lógica para el paginado
 import MovieCard from '../MovieCard/MovieCard'
+import PaginateF from '../../functional/paginateF/PaginateF'    // Lógica para el paginado
 import SearchFilters from '../../secondary/SearchFilters/SearchFilters'
+
 import axios from 'axios'
 
 import "./searchs.css";
 
-// Queremos deshacerno de las llamadas a redux, y reemplazarlas
-//      por llamadas directas a la api usando hooks y estado local.
-// Necesitamos tener un estado local que regitre las opciones de filtrado del usuario
-//      y que se actualice cuando cambie la selección del formulario.
-
 
 function Searchs() {
 
-    const searchTerm = useSelector(state => state.searchTerm)
+    const searchTerm = useSelector(state => state.searchTerm)   // Viene de nav
 
+    const [movies, setMovies] = useState([])
     const [options, setOptions] = useState({
         order: "",
         year1: "",
         year2: "",
         genre: ""
     })
-    const [movies, setMovies] = useState([])
-
 
     //  Manejo de la búsqueda
     const handleInputChange = (e) => {
@@ -40,16 +33,14 @@ function Searchs() {
 
     // Búsqueda propiamente dicha:
     const API_URL = "https://vadith-moviesapp-backend.herokuapp.com/search?"
-    // Término de búsqueda desde el componente nav, donde está el input del usuario
-    console.log(searchTerm)
-    // Envío de la búsqueda al backend
     useEffect(() => {
         let year1 = options.year1 || 0
         let year2 = options.year2 || new Date().getFullYear()
         // We pick the smaller one and we use it as the first year
         let yearString = Number(year1) < Number(year2) ? `${year1}-${year2}` : `${year2}-${year1}`
         const fetchData = async () => {
-            const result = await axios(`${API_URL}title=${searchTerm}&order_by=rating&sort=${options.order}&year=${yearString}&genre=${options.genre}`)
+            const result = await axios(API_URL + 'title=' + searchTerm +
+                '&order_by=rating&sort=' + options.order + '&year=' + yearString + '&genre=' + options.genre)
             setMovies(result.data.data)
         }
         fetchData()
@@ -69,9 +60,6 @@ function Searchs() {
     }   // Importante y no se toca
     // ########################################################
 
-    // Para refactorear a un componente presentacional:
-    //     - Necesitamos enviarle como props lo siguiente
-    //         - onChange: para el input
 
     return (
         <div className="container">
@@ -82,20 +70,20 @@ function Searchs() {
                         currentMovies.map(el => {
                             return (
                                 <MovieCard
-                                    title={el.title}
-                                    img={el.large_cover_image}
                                     id={el.id}
+                                    title={el.title}
                                     genres={el.genres}
+                                    img={el.large_cover_image}
                                 />
                             )
                         }) : <h1>Loading....</h1>
                 }
                 <div className="">
                     <PaginateF
-                        moviesPerPage={moviesPerPage}
-                        movies={movies.length}
                         paginado={paginado}
+                        movies={movies.length}
                         currentPage={currentMovies}
+                        moviesPerPage={moviesPerPage}
                     />
                 </div>
             </div>

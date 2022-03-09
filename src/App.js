@@ -9,6 +9,7 @@ import {
   Routes,
   Route
 } from "react-router-dom";
+// eslint-disable-next-line
 import Login from './components/principal/login/Login';
 
 function App() {
