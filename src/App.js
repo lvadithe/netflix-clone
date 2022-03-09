@@ -1,15 +1,15 @@
 import './App.css';
 import Home from './components/principal/home/Home';
-import Nav from './components/secondary/nav/Nav';
+import Nav from './components/secondary/Nav/Nav';
 import Detail from './components/principal/detail/Detail';
-import SearchD from './components/principal/MovieCard/MovieCard';
+import MovieCard from './components/principal/MovieCard/MovieCard';
 import Searchs from './components/principal/searchs/Searchs';
 import {
   BrowserRouter,
   Routes,
   Route
 } from "react-router-dom";
-import Login from './components/principal/login/Login';
+// import Login from './components/principal/login/Login';
 
 function App() {
 
@@ -27,7 +27,7 @@ function App() {
           <Route path='/home' element={<Home />} />
           <Route path='/searchs' element={<Searchs />} />
           <Route path='/detail/:id' element={<Detail />} />
-          <Route path='/search' element={<SearchD />} />
+          <Route path='/search' element={<MovieCard />} />
         </Routes>
 
       </div>

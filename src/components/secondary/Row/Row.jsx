@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom'
 import axios from 'axios';
-import "./row.css"
+import "./Row.css"
 
 // props is an array of strings. Each string is a genre.
 function Row(props) {

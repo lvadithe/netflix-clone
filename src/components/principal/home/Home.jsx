@@ -1,5 +1,5 @@
 import React from 'react'
-import Banner from '../../secondary/banner/Banner'
+import Banner from '../../secondary/Banner/Banner'
 import Row from '../../secondary/Row/Row'
 import "./home.css"
 

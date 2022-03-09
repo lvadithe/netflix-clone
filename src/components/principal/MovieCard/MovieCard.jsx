@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from "react-router-dom";
 import "./MovieCard.css";
 
-function SearchD({ title, img, id, genres }) {
+function MovieCard({ title, img, id, genres }) {
 
 
     return (
@@ -23,4 +23,4 @@ function SearchD({ title, img, id, genres }) {
     )
 }
 
-export default SearchD
+export default MovieCard

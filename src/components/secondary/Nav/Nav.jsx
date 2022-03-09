@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { BsSearch } from 'react-icons/bs';
 import { useDispatch } from "react-redux";
 import { pickSearchTerm } from "../../../redux/actions";
-import "./nav.css";
+import "./Nav.css";
 import { useNavigate } from 'react-router-dom';
 
 
