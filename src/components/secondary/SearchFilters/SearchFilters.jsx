@@ -26,17 +26,17 @@ const SearchFilters = ({ handleInputChange }) => {
                 <option value="desc" >desc</option>
             </select>
 
-            <div className="yearInput">
+            <div className="yearInput" >
                 <input
                     onChange={(e) => handleInputChange(e)}
                     name="year1"
-                    className="year_r"
+                    className="order_r"
                     type="number"
                     placeholder="From year..." />
                 <input
                     onChange={(e) => handleInputChange(e)}
                     name="year2"
-                    className="year_r"
+                    className="order_r"
                     type="number"
                     placeholder={`To year: ${new Date().getFullYear()}`} />
             </div>

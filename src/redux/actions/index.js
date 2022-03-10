@@ -16,10 +16,10 @@ export function getMovies() {
 
 export function getMoviesDetail(id) {
   return async function (dispatch) {
-    const json = await axios.get(`https://vadith-moviesapp-backend.herokuapp.com/movies/${id}`);
+    const json = await axios.get(`https://vadith-moviesapp-backend.herokuapp.com/search/${id}`);
     return dispatch({
       type: 'GET_DETAIL',
-      payload: json.data
+      payload: json.data.data
     })
   }
 }

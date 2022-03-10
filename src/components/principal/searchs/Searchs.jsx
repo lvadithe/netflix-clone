@@ -59,7 +59,7 @@ function Searchs() {
     // ########################################################
     // RELATIVO AL PAGINADO
     const [currentPage, setCurrentPage] = useState(1)
-    const [moviesPerPage] = useState(6)
+    const [moviesPerPage] = useState(24)
     const lastMovie = currentPage * moviesPerPage
     const firstMovie = lastMovie - moviesPerPage
     const currentMovies = movies.slice(firstMovie, lastMovie)

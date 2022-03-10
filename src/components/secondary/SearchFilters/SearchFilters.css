@@ -3,3 +3,15 @@
     flex-direction: row;
     justify-content: space-between;
 }
+
+.order_r {
+    margin: 0;
+    width: 130px;
+    padding-left: 30px;
+    box-sizing: border-box;
+    height: 40px;
+    color: #a2a2a2;
+    font-size: normal;
+    background-color: #282828;
+    border: 0;
+}
