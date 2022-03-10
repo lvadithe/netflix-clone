@@ -86,7 +86,7 @@ function Searchs() {
                                     key={index}
                                     title={el.title}
                                     genres={el.genres}
-                                    img={el.large_cover_image}
+                                    img={el.medium_cover_image}
                                 />
                             )
                         }) : <h1>Loading....</h1>

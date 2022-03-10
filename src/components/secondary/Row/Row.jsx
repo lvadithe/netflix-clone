@@ -37,7 +37,7 @@ function Row(props) {
                   <Link to={`/detail/${movie.id}`}>
                     <img
                       className="card-img-top"
-                      src={movie.small_cover_image}
+                      src={movie.large_cover_image}
                       alt={movie.title}
                     />
                   </Link>

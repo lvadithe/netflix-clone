@@ -11,19 +11,19 @@
 }
 
 .row__poster::-webkit-scrollbar {
-    display:none;
+    display: none;
 }
 
 .card-img-top {
     max-height: 100px;
     object-fit: contain;
-    max-height: 100px;
+    max-height: 155px;
     margin-right: 10px;
     /* Delay effect */
-    transition: transform 450ms; 
+    transition: transform 450ms;
 }
 
 .card-img-top:hover {
     transform: scale(1.08);
-    opacity:1;
+    opacity: 1;
 }
