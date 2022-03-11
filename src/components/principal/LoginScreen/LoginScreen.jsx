@@ -1,18 +1,20 @@
 import React, { useState } from 'react'
+
+import { postUser } from '../../../redux/actions'
 import { useDispatch, useSelector } from 'react-redux'
-import { postUser } from '../../../redux/actions';
+
 import "./loginScreen.css"
+
 
 function LoginScreen() {
 
-    const dispatch = useDispatch();
+    const dispatch = useDispatch()
+    
     const logIn = useSelector(state => state.user)
-
     const [post, setPost] = useState({
         email: '',
         password: ''
     })
-    console.log(post)
 
     function handleInputChange(e) {
         setPost({
@@ -22,12 +24,12 @@ function LoginScreen() {
     }
 
     const register = (e) => {
-        e.preventDefault();
-
+        e.preventDefault()
+        // ...
     }
 
     const signIn = (e) => {
-        e.preventDefault();
+        e.preventDefault()
         dispatch(postUser(post))
     }
     console.log(logIn)

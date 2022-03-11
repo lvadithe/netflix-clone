@@ -1,12 +1,11 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-import "./Banner.css";
+import React, { useEffect, useState } from 'react'
+import axios from 'axios'
+import "./Banner.css"
 
 function Banner() {
 
     const [randomMovie, setRandomMovie] = useState([])
 
-    // We need to get the movies from the external API.
     const BASE_URL = 'https://vadith-moviesapp-backend.herokuapp.com/search?year=2021-2022&order_by=rating&limit=100'
 
     useEffect(() => {
@@ -21,11 +20,10 @@ function Banner() {
     }, [])
 
     function truncate(string, n) {
-        return string?.length > n ? string.substr(0, n - 1) + '...' : string;
+        return string?.length > n ? string.substr(0, n - 1) + '...' : string
     }
 
     const handleClick = (e) => {
-        // We need to redirect the user to the youtube page of the trailer video
         window.open(`https://www.youtube.com/watch?v=${randomMovie.yt_trailer_code}`, "_blank")
     }
 

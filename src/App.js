@@ -1,15 +1,16 @@
-import './App.css';
-import Home from './components/principal/home/Home';
-import Nav from './components/secondary/Nav/Nav';
-import Detail from './components/principal/Detail/Detail';
-import MovieCard from './components/principal/MovieCard/MovieCard';
-import Searchs from './components/principal/searchs/Searchs';
+import Nav from './components/secondary/Nav/Nav'
+import Home from './components/principal/Home/Home'
+// import Login from './components/principal/Login/Login'
+import Detail from './components/principal/Detail/Detail'
+import Search from './components/principal/Search/Search'
+import MovieCard from './components/principal/MovieCard/MovieCard'
 import {
   BrowserRouter,
   Routes,
   Route
-} from "react-router-dom";
-// import Login from './components/principal/login/Login';
+} from "react-router-dom"
+
+import './App.css'
 
 function App() {
 
@@ -25,7 +26,7 @@ function App() {
         <Nav />
         <Routes>
           <Route path='/home' element={<Home />} />
-          <Route path='/searchs' element={<Searchs />} />
+          <Route path='/search' element={<Search />} />
           <Route path='/detail/:id' element={<Detail />} />
           <Route path='/search' element={<MovieCard />} />
         </Routes>
@@ -33,14 +34,7 @@ function App() {
       </div>
     </BrowserRouter>
 
-  );
+  )
 }
 
-export default App;
-
-
-
-
-/* const axios = require('axios');
-const aUrl =  axios.get('https://yts.mx/api/v2/list_movies.json?sort=seeds&limit=50');
-console.log(aUrl) */
+export default App

@@ -1,5 +1,7 @@
-import React, { useEffect } from 'react';
-import "./paginatef.css";
+import React, { useEffect } from 'react'
+
+import "./paginatef.css"
+
 
 function PaginateF({ moviesPerPage, movies, paginado }) {
 

@@ -1,6 +1,8 @@
 import React from 'react'
-import { Link } from "react-router-dom";
-import "./MovieCard.css";
+import { Link } from "react-router-dom"
+
+import "./MovieCard.css"
+
 
 function MovieCard({ title, img, id }) {
 

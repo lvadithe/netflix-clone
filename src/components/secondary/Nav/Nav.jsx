@@ -1,19 +1,22 @@
-import React, { useEffect, useState } from 'react';
-import LOGO from '../../../assets/logo_netflix.png';
-import AVATAR from '../../../assets/avatar.png';
-import { Link } from 'react-router-dom';
-import { BsSearch } from 'react-icons/bs';
-import { useDispatch } from "react-redux";
-import { pickSearchTerm } from "../../../redux/actions";
-import "./Nav.css";
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom'
+import { useDispatch } from "react-redux"
+import { useNavigate } from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
+import { pickSearchTerm } from "../../../redux/actions"
+
+import LOGO from '../../../assets/logo_netflix.png'
+import AVATAR from '../../../assets/avatar.png'
+import { BsSearch } from 'react-icons/bs'
+
+import "./Nav.css"
 
 
 function Nav() {
+
     const navigate = useNavigate()
     const dispatch = useDispatch()
     const [name, setName] = useState('')
-    const [state, setState] = useState(false);
+    const [state, setState] = useState(false)
 
     function handleInputChange(e) {
         e.preventDefault()
@@ -24,23 +27,16 @@ function Nav() {
     function handleSubmit(e) {
         e.preventDefault()
         dispatch(pickSearchTerm(name))
-        // Redirectionate to the 'Searchs' route
         setName('')
-        navigate('/searchs')
+        navigate('/search')
     }
 
-    const transitionNavBar = () => {
-        if (window.scrollY > 100) {
-            setState(true);
-        } else {
-            setState(false)
-        }
-    }
+    const transitionNavBar = () => setState(window.scrollY > 100 ? true : false)
 
     useEffect(() => {
-        window.addEventListener("scroll", transitionNavBar);
+        window.addEventListener("scroll", transitionNavBar)
         return () => window.removeEventListener("scroll", transitionNavBar)
-    }, []);
+    }, [])
 
     return (
         <div className={`nav__container ${state && 'nav__black'}`}>

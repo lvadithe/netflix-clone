@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
+
 import "./Row.css"
 
 // props is an array of strings. Each string is a genre.
@@ -39,7 +40,7 @@ function Row(props) {
                   <Link to={`/detail/${movie.id}`}>
                     <img
                       className="card-img-top"
-                      src={movie.large_cover_image}
+                      src={movie.small_cover_image}
                       alt={movie.title}
                     />
                   </Link>
@@ -51,4 +52,4 @@ function Row(props) {
   ) : <div>Loading...</div>
 }
 
-export default Row 
+export default Row

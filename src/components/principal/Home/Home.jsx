@@ -1,7 +1,9 @@
 import React from 'react'
-import Banner from '../../secondary/Banner/Banner'
 import Row from '../../secondary/Row/Row'
-import "./home.css"
+import Banner from '../../secondary/Banner/Banner'
+
+import "./Home.css"
+
 
 function Home() {
 
@@ -9,7 +11,7 @@ function Home() {
     <div className="home_container">
       <Banner />
       <div className="">
-        <Row genre={[""]} description={"Weekly ranking"}/>
+        <Row genre={[""]} description={"Weekly ranking"} />
         <Row genre={["Action"]} />
         <Row genre={["Comedy"]} />
         <Row genre={["Drama"]} />
