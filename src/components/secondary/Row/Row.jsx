@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import axios from 'axios';
+import axios from 'axios'
 import "./Row.css"
 
 // props is an array of strings. Each string is a genre.
@@ -14,7 +14,9 @@ function Row(props) {
 
   useEffect(() => {
     async function fetchData() {
-      const apiMovies = await axios.get(`${BASE_URL}/search?genre=${genre}&year=2021-2022&order_by=rating`)
+      const thisYear = new Date().getFullYear()
+      const lastYear = thisYear - 1
+      const apiMovies = await axios.get(`${BASE_URL}/search?genre=${genre}&year=${lastYear}-${thisYear}&order_by=rating`)
       return apiMovies.data.data
     }
     fetchData().then(movies => {
@@ -49,4 +51,4 @@ function Row(props) {
   ) : <div>Loading...</div>
 }
 
-export default Row; 
+export default Row 
