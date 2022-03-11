@@ -1,15 +1,15 @@
-import './App.css';
-import Home from './components/principal/home/Home';
-import Nav from './components/secondary/Nav/Nav';
-import Detail from './components/principal/Detail/Detail';
-import MovieCard from './components/principal/MovieCard/MovieCard';
-import Searchs from './components/principal/searchs/Searchs';
+import Nav from './components/secondary/Nav/Nav'
+import Home from './components/principal/home/Home'
+import Detail from './components/principal/Detail/Detail'
+import Searchs from './components/principal/searchs/Searchs'
+import MovieCard from './components/principal/MovieCard/MovieCard'
 import {
   BrowserRouter,
   Routes,
   Route
-} from "react-router-dom";
-// import Login from './components/principal/login/Login';
+} from "react-router-dom"
+import Login from './components/principal/Login/Login';
+import './App.css'
 
 function App() {
 
@@ -18,25 +18,26 @@ function App() {
     <BrowserRouter>
       <div className="App">
 
-        {/* <Routes>
+        <Routes>
           <Route path='/login' element={<Login />} />
-        </Routes> */}
+        </Routes>
 
-        <Nav />
+        {/* <Nav />
+        
         <Routes>
           <Route path='/home' element={<Home />} />
           <Route path='/searchs' element={<Searchs />} />
           <Route path='/detail/:id' element={<Detail />} />
           <Route path='/search' element={<MovieCard />} />
-        </Routes>
+        </Routes> */}
 
       </div>
     </BrowserRouter>
 
-  );
+  )
 }
 
-export default App;
+export default App
 
 
 

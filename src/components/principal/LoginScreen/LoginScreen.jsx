@@ -1,12 +1,14 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { postUser } from '../../../redux/actions';
-import "./loginScreen.css"
+import { login } from '../../../redux/actions/index.js'
+import "./LoginScreen.css"
 
 function LoginScreen() {
 
-    const dispatch = useDispatch();
-    const logIn = useSelector(state => state.user)
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
+    const userInfo = useSelector(state => state.user)
 
     const [post, setPost] = useState({
         email: '',
@@ -22,18 +24,17 @@ function LoginScreen() {
     }
 
     const register = (e) => {
-        e.preventDefault();
-
+        e.preventDefault()
+        navigate('/register')
     }
 
-    const signIn = (e) => {
-        e.preventDefault();
-        dispatch(postUser(post))
+    const loginUser = (e) => {
+        e.preventDefault()
+        dispatch(login(post))
     }
-    console.log(logIn)
     return (
-        <div className="signup_m">
-            <form onSubmit={e => signIn(e)}>
+        <div className="signin_container">
+            <form onSubmit={e => loginUser(e)}>
                 <h1>Sign In</h1>
                 <input placeholder='Email' type="email" value={post.email} name='email' onChange={e => handleInputChange(e)} />
                 <input placeholder='Password' type="password" value={post.password} name='password' onChange={e => handleInputChange(e)} />
@@ -43,6 +44,7 @@ function LoginScreen() {
                     <span className='signup_link' onClick={register} > Sign Up now.</span>
                 </h4>
             </form>
+            <h1>Sign In</h1>
         </div>
     )
 }

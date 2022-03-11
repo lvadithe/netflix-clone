@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
-import LOGO from '../../../assets/logo_netflix.png';
-import LoginScreen from '../loginScrenn/LoginScreen';
-import "./login.css"
+import LOGO from '../../../assets/logo_netflix.png'
+import LoginScreen from '../LoginScreen/LoginScreen'
+import "./Login.css"
 
 function Login() {
-    const [sigIn, setSignIn] = useState(false);
+    const [sigIn, setSignIn] = useState(false)
 
     return (
         <div className="login_m">
