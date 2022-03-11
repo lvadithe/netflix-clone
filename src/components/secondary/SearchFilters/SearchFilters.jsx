@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 
 import './SearchFilters.css'
 
+
 const SearchFilters = ({ handleInputChange }) => {
 
     // Nos traemos los géneros desde el backend
@@ -30,14 +31,14 @@ const SearchFilters = ({ handleInputChange }) => {
                 <input
                     onChange={(e) => handleInputChange(e)}
                     name="year1"
-                    className="order_r"
                     type="number"
+                    className="order_r"
                     placeholder="From year..." />
                 <input
                     onChange={(e) => handleInputChange(e)}
                     name="year2"
-                    className="order_r"
                     type="number"
+                    className="order_r"
                     placeholder={`To year: ${new Date().getFullYear()}`} />
             </div>
 

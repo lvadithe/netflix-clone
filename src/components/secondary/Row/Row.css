@@ -1,13 +1,13 @@
 .row {
-    color: white;
+    color      : white;
     margin-left: 10px;
 }
 
 .row__poster {
-    display: flex;
+    display   : flex;
     overflow-y: hidden;
     overflow-x: scroll;
-    padding: 20px;
+    padding   : 20px;
 }
 
 .row__poster::-webkit-scrollbar {
@@ -15,15 +15,15 @@
 }
 
 .card-img-top {
-    max-height: 100px;
-    object-fit: contain;
-    max-height: 155px;
+    max-height  : 100px;
+    object-fit  : contain;
+    max-height  : 155px;
     margin-right: 10px;
     /* Delay effect */
-    transition: transform 450ms;
+    transition  : transform 450ms;
 }
 
 .card-img-top:hover {
     transform: scale(1.08);
-    opacity: 1;
+    opacity  : 1;
 }
