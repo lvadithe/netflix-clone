@@ -3,6 +3,7 @@ const initialState = {
     allmovies: [],
     detail: [],
     searchTerm: '',
+    user: {},
 }
 
 function rootReducer(state = initialState, action) {
@@ -22,6 +23,11 @@ function rootReducer(state = initialState, action) {
             return {
                 ...state,
                 searchTerm: action.payload
+            }
+        case 'LOGIN':
+            return {
+                ...state,
+                user: action.payload
             }
         default:
             return state

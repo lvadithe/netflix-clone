@@ -1,44 +1,53 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
-import { postUser } from '../../../redux/actions'
+import { login } from '../../../redux/actions'
+import { useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 
-import "./loginScreen.css"
+import "./LoginScreen.css"
 
 
 function LoginScreen() {
 
     const dispatch = useDispatch()
-    
-    const logIn = useSelector(state => state.user)
-    const [post, setPost] = useState({
+    const navigate = useNavigate()
+
+    const [credentials, setCredentials] = useState({
         email: '',
         password: ''
     })
 
+    const user = useSelector(state => state.user)
+
+    useEffect(() => {
+        if (user.firstName) {
+            navigate('/home')
+        }
+        // eslint-disable-next-line
+    }, [user])
+
     function handleInputChange(e) {
-        setPost({
-            ...post,
+        setCredentials({
+            ...credentials,
             [e.target.name]: e.target.value
         })
     }
 
-    const register = (e) => {
-        e.preventDefault()
-        // ...
-    }
-
     const signIn = (e) => {
         e.preventDefault()
-        dispatch(postUser(post))
+        dispatch(login(credentials))
     }
-    console.log(logIn)
+
+    const register = () => {
+        navigate('/register')
+    }
+
     return (
         <div className="signup_m">
             <form onSubmit={e => signIn(e)}>
                 <h1>Sign In</h1>
-                <input placeholder='Email' type="email" value={post.email} name='email' onChange={e => handleInputChange(e)} />
-                <input placeholder='Password' type="password" value={post.password} name='password' onChange={e => handleInputChange(e)} />
+                <input placeholder='Email' type="email" value={credentials.email} name='email' onChange={e => handleInputChange(e)} />
+                <input placeholder='Password' type="password" value={credentials.password} name='password' onChange={e => handleInputChange(e)} />
                 <button type='submit' >Sign In</button>
                 <h4>
                     <span className='signup_gray' >New to Netflix?  </span>
