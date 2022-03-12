@@ -17,6 +17,7 @@ function Nav() {
     const dispatch = useDispatch()
     const [name, setName] = useState('')
     const [state, setState] = useState(false)
+    const [amAlive, setAmAlive] = useState(true)
 
     function handleInputChange(e) {
         e.preventDefault()
@@ -38,7 +39,14 @@ function Nav() {
         return () => window.removeEventListener("scroll", transitionNavBar)
     }, [])
 
-    return (
+    // If we are on the 'login' route, we want to hide the navbar
+    useEffect(() => {
+        if (window.location.pathname === '/login') {
+            setAmAlive(false)
+        }
+    }, [])
+
+    return amAlive ? (
         <div className={`nav__container ${state && 'nav__black'}`}>
             <div className="nav__content">
                 <Link to="/home">
@@ -51,7 +59,7 @@ function Nav() {
                 <img src={AVATAR} alt="" className='avatar__logo' />
             </div>
         </div>
-    )
+    ) : null
 }
 
 export default Nav 
