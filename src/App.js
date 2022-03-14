@@ -15,17 +15,16 @@ import './App.css'
 function App() {
 
   return <BrowserRouter>
-    <Nav />
-    <div className="App">
-      <Routes>
-        <Route path='/home' element={<Home />} />
-        <Route path='/login' element={<Login />} />
-        <Route path='/search' element={<Search />} />
-        <Route path='/detail/:id' element={<Detail />} />
-      </Routes>
-    </div>
-  </BrowserRouter>
+  <Nav />
+  <div className="App">
+    <Routes>
+      <Route path='/login' element={<Login />} />
+      <Route path='/home' element={<Home />} />
+      <Route path='/search' element={<Search />} />
+      <Route path='/detail/:id' element={<Detail />} />
+    </Routes>
+  </div>
+</BrowserRouter>
 }
-
 
 export default App
