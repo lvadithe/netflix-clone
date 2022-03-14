@@ -1,21 +1,19 @@
 import React, { useState, useEffect } from 'react'
 
-import { login } from '../../../redux/actions'
+import { signup } from '../../../redux/actions'
 import { useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 
-import SignUpScreen from '../SignUpScreen/SignUpScreen'
-
-import "./LoginScreen.css"
+import "./SignUpScreen.css"
 
 
-function LoginScreen() {
+function SignUpScreen() {
 
     const dispatch = useDispatch()
     const navigate = useNavigate()
     const [errors, setErrors] = useState({})
-    const [signup, setSignup] = useState(false)
-    const [credentials, setCredentials] = useState({ email: '', password: '' })
+    const [credentials, setCredentials] = useState({firstName: '', lastName: '', email: '', password: '' })
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/
     const mailRegex = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/g
 
     const user = useSelector(state => state.user)
@@ -36,25 +34,36 @@ function LoginScreen() {
         setErrors({
             ...errors,
             // regex test:
+            firstName: credentials.firstName.length > 0 ? '' : 'First name is required',
+            lastName: credentials.lastName.length > 0 ? '' : 'Last name is required',
             email: mailRegex.test(credentials.email) ? '' : 'Invalid email',
-            password: credentials.password.length > 0 ? '' : 'Password is required'
+            password: passwordRegex.test(credentials.password) ? '' : 'Password must be at least 8 characters long, contain at least one number, one uppercase letter and one special character (@$!%*?&)'
         })
     }
 
     const handleSubmit = (e) => {
         e.preventDefault()
         if (errors.email === '' && errors.password === '') {
-            dispatch(login(credentials))
+            dispatch(signup(credentials))
         }
     }
 
-    const register = () => setSignup(true)
-
     return (
-        !signup ? 
         <div className="signup_m">
             <form onSubmit={e => handleSubmit(e)}>
                 <h1>Sign In</h1>
+                <div>
+                    <input placeholder='First Name' type="text" value={credentials.firstName} name='firstName' onChange={e => handleInputChange(e)} />
+                    {errors.firstName && (
+                        <p>{errors.firstName}</p>
+                    )}
+                </div>
+                <div>
+                    <input placeholder='Last Name' type="text" value={credentials.lastName} name='lastName' onChange={e => handleInputChange(e)} />
+                    {errors.lastName && (
+                        <p>{errors.lastName}</p>
+                    )}
+                </div>
                 <div>
                     <input placeholder='Email' type="email" value={credentials.email} name='email' onChange={e => handleInputChange(e)} />
                     {errors.email && (
@@ -68,13 +77,9 @@ function LoginScreen() {
                     )}
                 </div>
                 <button type='submit' >Sign Up</button>
-                <h4>
-                    <span className='signup_gray' >New to Netflix?  </span>
-                    <span className='signup_link' onClick={register} > Sign Up now.</span>
-                </h4>
             </form>
-        </div> : <SignUpScreen />
+        </div>
     )
 }
 
-export default LoginScreen
+export default SignUpScreen

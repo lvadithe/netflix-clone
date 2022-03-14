@@ -34,6 +34,16 @@ function rootReducer(state = initialState, action) {
                 ...state,
                 user: action.payload
             }
+        case 'REGISTER':
+            return {
+                ...state,
+                user: action.payload
+            }
+        case 'REGISTER_ERROR':
+            return {
+                ...state,
+                user: action.payload
+            }
         default:
             return state
     }
