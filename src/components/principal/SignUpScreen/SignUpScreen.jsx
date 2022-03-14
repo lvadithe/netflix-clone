@@ -51,7 +51,7 @@ function SignUpScreen() {
     return (
         <div className="signup_m">
             <form onSubmit={e => handleSubmit(e)}>
-                <h1>Sign In</h1>
+                <h1>Sign Up</h1>
                 <div>
                     <input placeholder='First Name' type="text" value={credentials.firstName} name='firstName' onChange={e => handleInputChange(e)} />
                     {errors.firstName && (
@@ -76,7 +76,7 @@ function SignUpScreen() {
                         <p>{errors.password}</p>
                     )}
                 </div>
-                <button type='submit' >Sign Up</button>
+                <button type='submit' >Submit</button>
             </form>
         </div>
     )
