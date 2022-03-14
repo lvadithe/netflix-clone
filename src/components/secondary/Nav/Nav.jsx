@@ -40,12 +40,15 @@ function Nav() {
     }, [])
 
     // If we are on the 'login' route, we want to hide the navbar
+    const currentLocation = window.location.pathname
     useEffect(() => {
-        if (window.location.pathname === '/login') {
+        if (currentLocation === '/login') {
             setAmAlive(false)
         }
-    }, [])
+        // eslint-disable-next-line
+    }, [currentLocation])
 
+    
     return amAlive ? (
         <div className={`nav__container ${state && 'nav__black'}`}>
             <div className="nav__content">

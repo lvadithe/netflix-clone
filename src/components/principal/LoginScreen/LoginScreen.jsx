@@ -37,7 +37,7 @@ function LoginScreen() {
             ...errors,
             // regex test:
             email: mailRegex.test(credentials.email) ? '' : 'Invalid email',
-            password: credentials.password.length > 0 ? '' : 'Password is required'
+            password: e.target.value.length > 0 ? '' : 'Password is required'
         })
     }
 
@@ -67,7 +67,7 @@ function LoginScreen() {
                         <p>{errors.password}</p>
                     )}
                 </div>
-                <button type='submit' >Sign Up</button>
+                <button type='submit' >Sign In</button>
                 <h4>
                     <span className='signup_gray' >New to Netflix?  </span>
                     <span className='signup_link' onClick={register} > Sign Up now.</span>
