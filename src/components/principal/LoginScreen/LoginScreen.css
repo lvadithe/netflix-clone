@@ -25,7 +25,7 @@
     flex-direction: column;
 }
 
-.signup_m>form>input {
+.signup_m>form>div>input {
     outline-width: 0;
     height       : 40px;
     margin-bottom: 14px;
@@ -48,4 +48,8 @@
 .signup_link {
     cursor         : pointer;
     text-decoration: underline;
+}
+
+.signup_m>form>p {
+    color: #fff;
 }
