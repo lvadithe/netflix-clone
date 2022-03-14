@@ -41,10 +41,30 @@ export function pickSearchTerm(term) {
 
 export function login(user) {
   return async function (dispatch) {
-    const json = await axios.post(authUrls.login, user)
-    return dispatch({
-      type: 'LOGIN',
-      payload: json.data
-    })
+    try {
+      const json = await axios.post(authUrls.login, user)
+      return dispatch({
+        type: 'LOGIN',
+        payload: json.data
+      })
+    }
+    catch (err) {
+      return dispatch({
+        type: 'LOGIN_ERROR',
+        payload: {error: err.response.data}
+      })
+    }
+
+  //   const json = await axios.post(authUrls.login, user)
+  //   return dispatch({
+  //     type: 'LOGIN',
+  //     // We need to return user and error objects. user will be json.data 
+  //     // and error will be true if the response code is anything but 200
+  //     payload: {
+  //       user: json.status === 200 ? json.data : {
+  //         error: true
+  //       },
+  //     }
+  //   })
   }
 }
