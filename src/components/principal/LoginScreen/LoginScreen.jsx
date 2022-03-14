@@ -29,13 +29,13 @@ function LoginScreen() {
 
     const handleInputChange = e => {
         e.preventDefault()
+        setCredentials({ ...credentials, [e.target.name]: e.target.value })
         setErrors({
             ...errors,
             // regex test:
-            email: mailRegex.test(e.target.value) ? 'Invalid email' : '',
-            password: e.target.value.length > 0 ? '' : 'Password is required'
+            email: mailRegex.test(credentials.email) ? '' : 'Invalid email',
+            password: credentials.password.length > 0 ? '' : 'Password is required'
         })
-        setCredentials({ ...credentials, [e.target.name]: e.target.value })
     }
 
     const handleSubmit = (e) => {
