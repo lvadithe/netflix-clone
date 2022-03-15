@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+// import { useSelector } from 'react-redux'
+// import { useNavigate } from 'react-router-dom'
 import LoginScreen from '../LoginScreen/LoginScreen'
 
 import "./Login.css"
@@ -6,7 +8,17 @@ import LOGO from '../../../assets/logo_netflix.png'
 
 
 function Login() {
+    
+    // const navigate = useNavigate()
     const [sigIn, setSignIn] = useState(false)
+    // const { user } = useSelector(state => state.user)
+
+    // If the user is logged in, we want to redirect to the home page
+    // useEffect(() => {
+    //     if (user.email) {
+    //         navigate('/home')
+    //     }
+    // }, [user])
 
     return (
         <div className="login_m">

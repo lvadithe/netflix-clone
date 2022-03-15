@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react'
-
 import { signup } from '../../../redux/actions'
+
 import { useNavigate } from 'react-router-dom'
+import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
 import "./SignUpScreen.css"
@@ -12,7 +12,7 @@ function SignUpScreen() {
     const dispatch = useDispatch()
     const navigate = useNavigate()
     const [errors, setErrors] = useState({})
-    const [credentials, setCredentials] = useState({firstName: '', lastName: '', email: '', password: '' })
+    const [credentials, setCredentials] = useState({ firstName: '', lastName: '', email: '', password: '' })
     const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/gm
     const mailRegex = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/g
 

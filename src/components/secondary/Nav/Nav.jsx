@@ -17,7 +17,7 @@ function Nav() {
     const dispatch = useDispatch()
     const [name, setName] = useState('')
     const [state, setState] = useState(false)
-    const [amAlive, setAmAlive] = useState(true)
+    const [amAlive, setAmAlive] = useState(false)
 
     function handleInputChange(e) {
         e.preventDefault()
@@ -40,13 +40,12 @@ function Nav() {
     }, [])
 
     // If we are on the 'login' route, we want to hide the navbar
-    const currentLocation = window.location.pathname
+    // eslint-disable-next-line
     useEffect(() => {
-        if (currentLocation === '/login') {
-            setAmAlive(false)
+        if (window.location.pathname !== '/login') {
+            setAmAlive(true)
         }
-        // eslint-disable-next-line
-    }, [currentLocation])
+    })
 
     
     return amAlive ? (
