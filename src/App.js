@@ -11,7 +11,6 @@ import {
 } from "react-router-dom"
 
 import './App.css'
-import { useSelector } from 'react-redux'
 
 
 function App() {
@@ -19,6 +18,7 @@ function App() {
   return <BrowserRouter>
     <div className="App">
       <Routes>
+        <Route path="/" element={<Home />} />
         <Route path='/login' element={<Login />} />
         <Route path='/home' element={<Home />} />
         <Route path='/search' element={<Search />} />

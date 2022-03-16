@@ -38,6 +38,8 @@
     width: 150px;
     object-fit: contain;
     padding-left: 20px;
+    z-index: 2;
+    cursor: pointer;
 }
 
 .login_body > h1 {

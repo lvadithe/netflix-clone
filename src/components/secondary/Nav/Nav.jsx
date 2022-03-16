@@ -21,7 +21,7 @@ function Nav() {
 
     function handleInputChange(e) {
         e.preventDefault()
-        setName(e.target.value)   //valor del input
+        setName(e.target.value)
     }
 
     // We need to go to the 'Searchs' route after we dealt with the search
