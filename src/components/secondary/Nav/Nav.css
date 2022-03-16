@@ -17,8 +17,9 @@
 
 .nav__content {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
   flex-direction: row;
+  align-items: center;
 }
 
 .nav__logo {
@@ -39,10 +40,11 @@
 }
 
 .container-2 {
-  width         : 200px;
+  width: 95px;
   vertical-align: middle;
-  white-space   : nowrap;
-  position      : relative;
+  white-space: nowrap;
+  position: relative;
+  margin-left: 380px;
 }
 
 .container-2 input#search {
@@ -105,4 +107,14 @@
 
 .container-2:hover .icon {
   color: #93a2ad;
+}
+
+.user {
+  display: flex;
+  align-items: center;
+}
+
+.nav__user {
+  color: #da0000;
+  font-size: 15px;
 }

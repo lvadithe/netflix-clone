@@ -62,7 +62,14 @@ function Nav() {
                     <BsSearch onClick={(e) => handleSubmit(e)} className="icon" />
                     <input onChange={(e) => handleInputChange(e)} type="search" value={name} id="search" placeholder="Search..." />
                 </div>
-                <img src={AVATAR} alt="" className='avatar__logo' onClick={logoutUser} />
+                <div className="user">
+                    {user.firstName ? (
+                        <p className="nav__user">
+                            Hi, {user.firstName}
+                        </p>
+                    ) : (null)}
+                    <img src={AVATAR} alt="" className='avatar__logo' onClick={logoutUser} />
+                </div>
             </div>
         </div>
     ) : null
