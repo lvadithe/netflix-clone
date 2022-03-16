@@ -1,15 +1,14 @@
 import { Link } from 'react-router-dom'
-import { useDispatch } from "react-redux"
 import { useNavigate } from 'react-router-dom'
 import React, { useEffect, useState } from 'react'
-import { pickSearchTerm } from "../../../redux/actions"
+import { useSelector, useDispatch } from 'react-redux'
+import { logout, pickSearchTerm } from "../../../redux/actions"
 
 import LOGO from '../../../assets/logo_netflix.png'
 import AVATAR from '../../../assets/avatar.png'
 import { BsSearch } from 'react-icons/bs'
 
 import "./Nav.css"
-
 
 function Nav() {
 
@@ -18,6 +17,7 @@ function Nav() {
     const [name, setName] = useState('')
     const [state, setState] = useState(false)
     const [amAlive, setAmAlive] = useState(false)
+    const user = useSelector(state => state.user)
 
     function handleInputChange(e) {
         e.preventDefault()
@@ -47,7 +47,11 @@ function Nav() {
         }
     })
 
-    
+    const logoutUser = () => {
+        dispatch(logout(user))
+        navigate('/login')
+    }
+
     return amAlive ? (
         <div className={`nav__container ${state && 'nav__black'}`}>
             <div className="nav__content">
@@ -58,7 +62,7 @@ function Nav() {
                     <BsSearch onClick={(e) => handleSubmit(e)} className="icon" />
                     <input onChange={(e) => handleInputChange(e)} type="search" value={name} id="search" placeholder="Search..." />
                 </div>
-                <img src={AVATAR} alt="" className='avatar__logo' />
+                <img src={AVATAR} alt="" className='avatar__logo' onClick={logoutUser} />
             </div>
         </div>
     ) : null

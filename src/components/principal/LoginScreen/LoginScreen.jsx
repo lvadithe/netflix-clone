@@ -51,29 +51,36 @@ function LoginScreen() {
     const register = () => setSignup(true)
 
     return (
-        !signup ? 
-        <div className="signup_m">
-            <form onSubmit={e => handleSubmit(e)}>
-                <h1>Sign In</h1>
-                <div>
-                    <input placeholder='Email' type="email" value={credentials.email} name='email' onChange={e => handleInputChange(e)} />
-                    {errors.email && (
-                        <p>{errors.email}</p>
-                    )}
-                </div>
-                <div>
-                    <input placeholder='Password' type="password" value={credentials.password} name='password' onChange={e => handleInputChange(e)} />
-                    {errors.password && (
-                        <p>{errors.password}</p>
-                    )}
-                </div>
-                <button type='submit' >Sign In</button>
-                <h4>
-                    <span className='signup_gray' >New to Netflix?  </span>
-                    <span className='signup_link' onClick={register} > Sign Up now.</span>
-                </h4>
-            </form>
-        </div> : <SignUpScreen />
+        !signup ?
+            <div className="signup_m">
+                <form onSubmit={e => handleSubmit(e)}>
+                    <h1>Sign In</h1>
+                
+                    <div>
+                        <input placeholder='Email' type="email" value={credentials.email} name='email' onChange={e => handleInputChange(e)} />
+
+                        {errors.email && (
+                            <>
+                                
+                                <p className='error'>{errors.email}</p>
+                            </>
+
+                        )}
+                    </div>
+                    <div>
+                        <input placeholder='Password' type="password" value={credentials.password} name='password' onChange={e => handleInputChange(e)} />
+                
+                        {errors.password && (
+                            <p className='error'>{errors.password}</p>
+                        )}
+                    </div>
+                    <button type='submit' >Sign In</button>
+                    <h4>
+                        <span className='signup_gray' >New to Netflix?  </span>
+                        <span className='signup_link' onClick={register} > Sign Up now.</span>
+                    </h4>
+                </form>
+            </div> : <SignUpScreen />
     )
 }
 

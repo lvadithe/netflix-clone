@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react'
 import MovieCard from '../MovieCard/MovieCard'
 import PaginateF from '../../functional/paginateF/PaginateF'    // Lógica para el paginado
 import SearchFilters from '../../secondary/SearchFilters/SearchFilters'
+import Nav from '../../secondary/Nav/Nav'
 import axios from 'axios'
 
 import "./Search.css"
@@ -61,33 +62,36 @@ function Search() {
     // ############################################################
 
     return (
-        <div className="container">
-            <SearchFilters handleInputChange={handleInputChange} />
-            <div className="content">
-                {
-                    movies.length > 0 ?
-                        currentMovies.map((el, index) => {
-                            return (
-                                <MovieCard
-                                    id={el.id}
-                                    key={el.id}
-                                    title={el.title}
-                                    genres={el.genres}
-                                    img={el.medium_cover_image}
-                                />
-                            )
-                        }) : <h1>Loading....</h1>
-                }
+        <>
+            <Nav />
+            <div className="container">
+                <SearchFilters handleInputChange={handleInputChange} />
+                <div className="content">
+                    {
+                        movies.length > 0 ?
+                            currentMovies.map((el, index) => {
+                                return (
+                                    <MovieCard
+                                        id={el.id}
+                                        key={el.id}
+                                        title={el.title}
+                                        genres={el.genres}
+                                        img={el.medium_cover_image}
+                                    />
+                                )
+                            }) : <h1>Loading....</h1>
+                    }
+                </div>
+                <div className="">
+                    <PaginateF
+                        paginado={paginado}
+                        movies={movies.length}
+                        currentPage={currentMovies}
+                        moviesPerPage={moviesPerPage}
+                    />
+                </div>
             </div>
-            <div className="">
-                <PaginateF
-                    paginado={paginado}
-                    movies={movies.length}
-                    currentPage={currentMovies}
-                    moviesPerPage={moviesPerPage}
-                />
-            </div>
-        </div>
+        </>
     )
 }
 

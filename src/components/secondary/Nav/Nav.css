@@ -16,8 +16,9 @@
 }
 
 .nav__content {
-  display        : flex;
-  justify-content: flex-end;
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: row;
 }
 
 .nav__logo {
@@ -34,10 +35,11 @@
   position: fixed;
   right   : 20px;
   width   : 30px;
+  cursor: pointer;
 }
 
 .container-2 {
-  width         : 300px;
+  width         : 200px;
   vertical-align: middle;
   white-space   : nowrap;
   position      : relative;

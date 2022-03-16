@@ -55,25 +55,25 @@ function SignUpScreen() {
                 <div>
                     <input placeholder='First Name' type="text" value={credentials.firstName} name='firstName' onChange={e => handleInputChange(e)} />
                     {errors.firstName && (
-                        <p>{errors.firstName}</p>
+                        <p className='error'>{errors.firstName}</p>
                     )}
                 </div>
                 <div>
                     <input placeholder='Last Name' type="text" value={credentials.lastName} name='lastName' onChange={e => handleInputChange(e)} />
                     {errors.lastName && (
-                        <p>{errors.lastName}</p>
+                        <p className='error'>{errors.lastName}</p>
                     )}
                 </div>
                 <div>
                     <input placeholder='Email' type="email" value={credentials.email} name='email' onChange={e => handleInputChange(e)} />
                     {errors.email && (
-                        <p>{errors.email}</p>
+                        <p className='error'>{errors.email}</p>
                     )}
                 </div>
                 <div>
                     <input placeholder='Password' type="password" value={credentials.password} name='password' onChange={e => handleInputChange(e)} />
                     {errors.password && (
-                        <p>{errors.password}</p>
+                        <p className='error'>{errors.password}</p>
                     )}
                 </div>
                 <button type='submit' >Submit</button>

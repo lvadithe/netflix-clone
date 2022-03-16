@@ -44,6 +44,11 @@ function rootReducer(state = initialState, action) {
                 ...state,
                 user: action.payload
             }
+        case 'LOGOUT':
+            return {
+                ...state,
+                user: {}
+            }
         default:
             return state
     }

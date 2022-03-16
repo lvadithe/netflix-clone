@@ -74,3 +74,13 @@ export function signup(user) {
     }
   }
 }
+
+export function logout(user) {
+  return async function (dispatch) {
+      const json = await axios.get(authUrls.logout, user)
+      return dispatch({
+        type: 'LOGOUT',
+        payload: json.data
+      })
+  }
+}
